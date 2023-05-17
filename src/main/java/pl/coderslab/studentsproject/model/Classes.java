@@ -1,24 +1,23 @@
 package pl.coderslab.studentsproject.model;
 
-
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 @Entity
-@Table(name="classes")
+@Table(name = "classes")
 @Getter
 @Setter
-@ToString
-public class Classes {  // toto zdrobić relację many to many z students
+public class Classes {
+
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)   // TODO dodać relację one to many z students
+    @Column(name = "class_id")
     private long id;
 
-    private String name;
+    @Column(name = "class_name")
+    private String className;
 
+    @Column(name = "description", length = 1000)
     private String description;
-
-
 }

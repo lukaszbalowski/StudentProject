@@ -6,27 +6,32 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Table(name="students")
+@Table(name = "students")
 @Getter
 @Setter
-@ToString
 public class Student {
 
    @Id
    @GeneratedValue(strategy= GenerationType.IDENTITY)   // TODO dodać relację many to many z parents
+   @Column (name="student_id")
    private long id;
 
-    private String firstName;
+   @Column (name="first_name")
+   private String firstName;
 
-    private String lastName;
+   @Column (name="last_name")
+   private String lastName;
 
-    private String email;
+   @Column (name="email")
+   private String email;
 
-    private String phone;
+   @Column (name="phone")
+   private String phone;
 
-    private String birthDate;
+   @Column (name="birth_date")
+   private String birthDate;
 
-    private String studyStartDate;
-
+   @Column(name="study_start_date")
+   private String studyStartDate;
 
 }
