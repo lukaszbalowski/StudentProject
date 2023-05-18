@@ -19,7 +19,7 @@ public class StudentController {
     private StudentService studentService;
 
     @GetMapping ("/list/students")
-    public String getHomeView (Model model) {
+    public String getStudentsList(Model model) {
      model.addAttribute("students", studentService.getAllStudents());
         return "studentslist";
     }
@@ -41,7 +41,7 @@ public class StudentController {
     @PostMapping("/list/students/filter")
     public String filterStudents(@RequestParam("classId") int classId, Model model) {
         if (classId == 0) {
-            return getHomeView(model);
+            return getStudentsList(model);
         }
 
         List<Student> filteredStudents = studentService.filterStudentsByClassId(classId);

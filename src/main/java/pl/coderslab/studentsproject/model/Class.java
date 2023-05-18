@@ -8,7 +8,7 @@ import lombok.Setter;
 @Table(name = "classes")
 @Getter
 @Setter
-public class Classes {
+public class Class {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)   // TODO dodać relację one to many z students

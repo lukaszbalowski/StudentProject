@@ -12,20 +12,20 @@ public class StudentServiceImplement implements StudentService {
 
 
     @Autowired
-    private StudentRepository StudentRepository;
+    private StudentRepository studentRepository;
 
     @Override
     public List<Student> getAllStudents() {
-        return StudentRepository.findAll();
+        return studentRepository.findAll();
     }
 
     @Override
     public List<Student> searchStudentsByLastName(String lastName) {
-        return StudentRepository.findByLastName(lastName);
+        return studentRepository.findByLastName(lastName);
     }
 
     @Override
     public List<Student> filterStudentsByClassId(int classId) {
-        return StudentRepository.findByClassId(classId);
+        return studentRepository.findByClassId(classId);
     }
 }

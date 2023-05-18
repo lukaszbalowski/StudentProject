@@ -9,7 +9,7 @@ public class HomeController {
 
 
     @GetMapping("/")
-    public String showForm() {
+    public String showHome() {
         return "index";
     }
 

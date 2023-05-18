@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Lista klas</title>
+
+  <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+
+</head>
+<body>
+<div class="container my-2">
+  <h1>Lista klas</h1>
+  <table border="1" class = "table table-striped table-responsive-md">
+    <thead>
+    <tr>
+      <th>Nazwa klasy</th>
+      <th>Opis klasy</th>
+      <th>Liczba uczniów</th>
+
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="class : ${classes}">
+      <td th:text="${class.className}"></td>
+      <td th:text="${class.Description}"></td>
+      <td>Liczba Studentów</td>
+
+
+
+
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>
