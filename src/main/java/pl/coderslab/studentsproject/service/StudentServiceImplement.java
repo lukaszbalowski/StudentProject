@@ -18,4 +18,9 @@ public class StudentServiceImplement implements StudentService {
     public List<Student> getAllStudents() {
         return StudentRepository.findAll();
     }
+
+    @Override
+    public List<Student> searchStudentsByLastName(String lastName) {
+        return StudentRepository.findByLastName(lastName);
+    }
 }

@@ -19,18 +19,13 @@
     <br>
 
     Filtruj wg klasy
-    <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-        <label class="form-check-label" for="flexCheckDefault">
-            Default checkbox
-        </label>
-    </div>
-    <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-        <label class="form-check-label" for="flexCheckChecked">
-            Checked checkbox
-        </label>
-    </div>
+    <select class="form-select" multiple aria-label="multiple select example">
+        <option selected>Wszystkie klasy</option>
+        <option value="1">Klasa 1</option>
+        <option value="2">Klasa 2</option>
+        <option value="3">Klasa 3</option>
+        <option value="4">Klasa 4</option>
+    </select>
 
 </center>
 <div class="container my-2">
@@ -61,6 +56,9 @@
 
         </tr>
 
+<!--        <ul>-->
+<!--            <li th:each="student : ${students}" th:text="${student.firstName + ' ' + student.lastName}"></li>-->
+<!--        </ul>-->
         </tbody>
     </table>
 </div>
