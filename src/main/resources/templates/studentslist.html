@@ -19,18 +19,16 @@
     <br>
 
     Filtruj wg klasy
-    <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-        <label class="form-check-label" for="flexCheckDefault">
-            Default checkbox
-        </label>
-    </div>
-    <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-        <label class="form-check-label" for="flexCheckChecked">
-            Checked checkbox
-        </label>
-    </div>
+    <form th:action="@{/list/students/filter}" method="post">
+        <select name="classId" onchange="this.form.submit()">
+            <option value="0">Filtruj wg klasy</option>
+            <option value="1">Klasa 1</option>
+            <option value="2">Klasa 2</option>
+            <option value="3">Klasa 3</option>
+            <option value="4">Klasa 4</option>
+        </select>
+        </form>
+    <a href="/list/students">Kasuj filtr</a>
 
 </center>
 <div class="container my-2">
@@ -43,6 +41,7 @@
             <th>email Ucznia</th>
             <th>Telefon Ucznia</th>
             <th>Data urodzenia Ucznia</th>
+            <th>Klasa</th>
             <th>Data rozpoczęcia nauki Ucznia</th>
             <th>Działania</th>
 
@@ -55,6 +54,7 @@
             <td th:text="${student.email}"></td>
             <td th:text="${student.phone}"></td>
             <td th:text="${student.birthDate}"></td>
+            <td th:text="${student.classId}"></td>
             <td th:text="${student.studyStartDate}"></td>
             <td>Pokaż, Edytuj </td>
 

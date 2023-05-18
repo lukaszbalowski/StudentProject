@@ -31,4 +31,23 @@ public class StudentController {
         return "studentslist";
     }
 
+//    @PostMapping("/list/students/filter")
+//    public String filterStudents(@RequestParam("classId") int classId, Model model) {
+//        List<Student> filteredStudents = studentService.filterStudentsByClassId(classId);
+//        model.addAttribute("students", filteredStudents);
+//        return "studentslist";
+//    }
+
+    @PostMapping("/list/students/filter")
+    public String filterStudents(@RequestParam("classId") int classId, Model model) {
+        if (classId == 0) {
+            return getHomeView(model);
+        }
+
+        List<Student> filteredStudents = studentService.filterStudentsByClassId(classId);
+        model.addAttribute("students", filteredStudents);
+        return "studentslist";
+    }
+
+
 }

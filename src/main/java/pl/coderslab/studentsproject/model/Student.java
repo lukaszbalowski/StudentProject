@@ -34,4 +34,7 @@ public class Student {
    @Column(name="study_start_date")
    private String studyStartDate;
 
+   @Column(name="class_id")
+   private int classId;
+
 }

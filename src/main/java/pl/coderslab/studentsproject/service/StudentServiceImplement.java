@@ -23,4 +23,9 @@ public class StudentServiceImplement implements StudentService {
     public List<Student> searchStudentsByLastName(String lastName) {
         return StudentRepository.findByLastName(lastName);
     }
+
+    @Override
+    public List<Student> filterStudentsByClassId(int classId) {
+        return StudentRepository.findByClassId(classId);
+    }
 }
