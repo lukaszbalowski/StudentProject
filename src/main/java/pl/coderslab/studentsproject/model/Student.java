@@ -34,7 +34,13 @@ public class Student {
    @Column(name="study_start_date")
    private String studyStartDate;
 
+   @Column (name="parent_id")
+   private int parentId;
+
+
    @Column(name="class_id")
    private int classId;
+
+
 
 }
