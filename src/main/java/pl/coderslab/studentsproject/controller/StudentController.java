@@ -24,6 +24,9 @@ public class StudentController {
     @Autowired
     private ParentService parentService;
 
+    @Autowired
+    private ClassService classService;
+
 
     @GetMapping ("/list/students")
     public String getStudentsList(Model model) {
@@ -56,9 +59,12 @@ public class StudentController {
     public String showStudentDetails(@PathVariable("studentId") String studentId, Model model) {
         Student student = studentService.getStudentById(Long.parseLong(studentId));
         Parent parent = parentService.getParentById(student.getParentId());
+//        Class studentClass = studentService.getStudentById(Long.parseLong(studentId)).getStudentClass();
+        Class studentClass = classService.getClassById(student.getClassId());
 
         model.addAttribute("student", student);
         model.addAttribute("parent", parent);
+        model.addAttribute("studentClass", studentClass);
 
         return "studentdetails";
 

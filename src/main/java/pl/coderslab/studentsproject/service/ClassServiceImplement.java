@@ -18,4 +18,10 @@ public class ClassServiceImplement implements ClassService {
         return classRepository.findAll();
     }
 
+    @Override
+    public Class getClassById(long classId) {
+        return classRepository.findById(classId)
+                .orElseThrow(() -> new IllegalArgumentException("Niepoprawny ID Klasy: " + classId));
+    }
+
 }
