@@ -65,7 +65,6 @@ public class StudentController {
         model.addAttribute("student", student);
         model.addAttribute("parent", parent);
         model.addAttribute("studentClass", studentClass);
-
         return "studentdetails";
 
     }
