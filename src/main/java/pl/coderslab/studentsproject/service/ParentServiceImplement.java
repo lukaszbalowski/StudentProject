@@ -18,4 +18,11 @@ public class ParentServiceImplement implements ParentService {
         return parentRepository.findAll();
     }
 
+    @Override
+    public Parent getParentById(long parentId) {
+        return parentRepository.findById(parentId)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid parent ID: " + parentId));
+    }
+
+
 }

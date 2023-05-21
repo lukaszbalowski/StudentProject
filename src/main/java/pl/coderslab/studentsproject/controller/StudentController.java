@@ -4,12 +4,11 @@ package pl.coderslab.studentsproject.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import pl.coderslab.studentsproject.model.Parent;
 import pl.coderslab.studentsproject.model.Student;
+import pl.coderslab.studentsproject.model.Class;
+import pl.coderslab.studentsproject.service.ClassService;
 import pl.coderslab.studentsproject.service.ParentService;
 import pl.coderslab.studentsproject.service.StudentService;
 
@@ -21,6 +20,10 @@ public class StudentController {
 
     @Autowired
     private StudentService studentService;
+
+    @Autowired
+    private ParentService parentService;
+
 
     @GetMapping ("/list/students")
     public String getStudentsList(Model model) {
@@ -49,5 +52,16 @@ public class StudentController {
         return "studentslist";
     }
 
+    @GetMapping("/student/details/{studentId}")
+    public String showStudentDetails(@PathVariable("studentId") String studentId, Model model) {
+        Student student = studentService.getStudentById(Long.parseLong(studentId));
+        Parent parent = parentService.getParentById(student.getParentId());
+
+        model.addAttribute("student", student);
+        model.addAttribute("parent", parent);
+
+        return "studentdetails";
+
+    }
 
 }

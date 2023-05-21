@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Szczegóły studenta</title>
+  <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+</head>
+<body>
+<div class="container my-2">
+  <h1>Szczegóły studenta</h1>
+  <h3>Student:</h3>
+  <ul>
+    <li>Imię: <span th:text="${student.firstName}"></span></li>
+    <li>Nazwisko: <span th:text="${student.lastName}"></span></li>
+    <li>Email: <span th:text="${student.email}"></span></li>
+    <li>Telefon: <span th:text="${student.phone}"></span></li>
+    <li>Data urodzenia: <span th:text="${student.birthDate}"></span></li>
+    <li>Data rozpoczęcia nauki: <span th:text="${student.studyStartDate}"></span></li>
+  </ul>
+
+  <h3>Rodzic:</h3>
+  <ul>
+    <li>Imię: <span th:text="${parent.firstName}"></span></li>
+    <li>Nazwisko: <span th:text="${parent.lastName}"></span></li>
+    <li>Email: <span th:text="${parent.email}"></span></li>
+    <li>Telefon: <span th:text="${parent.phone}"></span></li>
+  </ul>
+
+<!--  <h3>Klasa:</h3>-->
+<!--  <ul>-->
+<!--    <li>Nazwa: <span th:text="${studentClass.className}"></span></li>-->
+<!--    <li>Opis: <span th:text="${studentClass.description}"></span></li>-->
+<!--  </ul>-->
+</div>
+</body>
+</html>

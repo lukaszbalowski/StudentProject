@@ -57,7 +57,7 @@
             <td th:text="${student.classId}"></td>
             <td th:text="${student.parentId}"></td>
             <td th:text="${student.studyStartDate}"></td>
-            <td>Pokaż, Edytuj </td>
+            <td><a th:href="@{'/student/details/' + ${student.id}}">Pokaż</a>,<br> Edytuj </td>
 
 
         </tr>

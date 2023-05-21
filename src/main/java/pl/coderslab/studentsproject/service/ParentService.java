@@ -8,5 +8,8 @@ public interface ParentService {
 
         List<Parent> getAllParents();
 
+        Parent getParentById(long parentId);
+
+
     }
 

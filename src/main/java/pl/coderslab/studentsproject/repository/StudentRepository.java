@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 import pl.coderslab.studentsproject.model.Student;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface StudentRepository extends JpaRepository<Student, Long> {
@@ -14,6 +15,8 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
     List<Student> findByLastName(String lastName);
 
     List<Student> findByClassId(int classId);
+
+    Optional<Student> findById(long studentId);
 
 }
 

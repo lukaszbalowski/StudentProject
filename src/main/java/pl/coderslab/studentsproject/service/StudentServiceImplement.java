@@ -28,4 +28,15 @@ public class StudentServiceImplement implements StudentService {
     public List<Student> filterStudentsByClassId(int classId) {
         return studentRepository.findByClassId(classId);
     }
-}
+
+    @Override
+    public Student getStudentById(long studentId) {
+        return studentRepository.findById(studentId)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid student ID: " + studentId));
+    }
+
+
+    }
+
+
+
