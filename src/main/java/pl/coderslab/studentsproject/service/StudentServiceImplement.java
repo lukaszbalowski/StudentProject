@@ -35,6 +35,10 @@ public class StudentServiceImplement implements StudentService {
                 .orElseThrow(() -> new IllegalArgumentException("Invalid student ID: " + studentId));
     }
 
+    @Override
+    public void saveStudent(Student student) {
+        this.studentRepository.save(student);
+    }
 
     }
 
