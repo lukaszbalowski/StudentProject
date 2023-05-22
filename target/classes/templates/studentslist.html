@@ -28,6 +28,9 @@
         </select>
         </form>
     <a href="/list/students">Kasuj filtr</a>
+<hr><br>
+
+    <a th:href="@{/student/add}" class="btn btn-primary btn-sm mb-3">dodaj studenta</a> <br>
 
 </center>
 <div class="container my-2">
@@ -41,7 +44,6 @@
             <th>Telefon Ucznia</th>
             <th>Data urodzenia Ucznia</th>
             <th>Klasa</th>
-            <th>Id Rodzica</th>
             <th>Data rozpoczęcia nauki Ucznia</th>
             <th>Działania</th>
 
@@ -55,7 +57,6 @@
             <td th:text="${student.phone}"></td>
             <td th:text="${student.birthDate}"></td>
             <td th:text="${student.classId}"></td>
-            <td th:text="${student.parentId}"></td>
             <td th:text="${student.studyStartDate}"></td>
             <td><a th:href="@{'/student/details/' + ${student.id}}" class="btn btn-primary">Pokaż</a> <a href="/notyet" class="btn btn-primary">Edytuj</a> </td>
 

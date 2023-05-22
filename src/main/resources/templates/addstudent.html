@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <meta charset="ISO-8859-1">
+    <meta charset="UTF-8">
     <title>Student Management System</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
@@ -24,11 +24,18 @@
 
         <input type="text" th:field="*{birthDate}" placeholder="Data urodzenia" class="form-control mb-4 col-4">
 
-        <input type="text" th:field="*{studyStartDate}" placeholder="Data rozpocz?cia nauki" class="form-control mb-4 col-4">
+        <input type="text" th:field="*{studyStartDate}" placeholder="Data rozpoczęcia nauki" class="form-control mb-4 col-4">
 
-        <input type="text" th:field="*{parentId}" placeholder="idRodzica" class="form-control mb-4 col-4">
+        <input type="text" th:field="*{parentId}" placeholder="Id Rodzica" class="form-control mb-4 col-4">
 
-        <input type="text" th:field="*{classId}" placeholder="Klasa" class="form-control mb-4 col-4">
+        <!--        <input type="text" th:field="*{classId}" placeholder="Klasa" class="form-control mb-4 col-4">-->
+        <select class="form-control mb-4 col-4" th:field="*{classId}">
+            <option value="0">wybierz klasę</option>
+            <option value="1">pierwsza klasa</option>
+            <option value="2">druga klasa</option>
+            <option value="3">trzecia klasa</option>
+            <option value="4">czwarta pozycja</option>
+        </select>
 
         <button type="submit" class="btn btn-info col-2">Save Student</button>
     </form>
