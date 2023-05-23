@@ -58,7 +58,7 @@
             <td th:text="${student.birthDate}"></td>
             <td th:text="${student.classId}"></td>
             <td th:text="${student.studyStartDate}"></td>
-            <td><a th:href="@{'/student/details/' + ${student.id}}" class="btn btn-primary">Pokaż</a> <a href="/notyet" class="btn btn-primary">Edytuj</a> </td>
+            <td><a th:href="@{'/student/details/' + ${student.id}}" class="btn btn-primary">Pokaż</a> <a th:href="@{/student/edit/{id}(id=${student.id})}" class="btn btn-primary">Edytuj</a> </td>
 
 
         </tr>
