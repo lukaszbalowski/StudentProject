@@ -16,7 +16,7 @@
 
     <form action="#" th:action="@{/saveStudent}" th:object="${student}" method="POST">
 
-        <!-- Add hidden form field to handle update -->
+        
         <input type="hidden" th:field="*{id}" />
 
         <input type="text" th:field="*{firstName}" class="form-control mb-4 col-4">
@@ -38,7 +38,7 @@
             <option value="1">pierwsza klasa</option>
             <option value="2">druga klasa</option>
             <option value="3">trzecia klasa</option>
-            <option value="4">czwarta pozycja</option>
+            <option value="4">czwarta klasa</option>
         </select>
 
         <button type="submit" class="btn btn-info col-2"> Zapisz</button>
@@ -46,7 +46,7 @@
 
     <hr>
 
-    <a th:href="@{/}"> Back to Employee List</a>
+    <a th:href="@{/list/students}">Wróć do listy studentów</a>
 </div>
 </body>
 
