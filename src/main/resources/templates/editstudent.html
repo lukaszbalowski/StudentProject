@@ -16,7 +16,7 @@
 
     <form action="#" th:action="@{/saveStudent}" th:object="${student}" method="POST">
 
-        
+
         <input type="hidden" th:field="*{id}" />
 
         <input type="text" th:field="*{firstName}" class="form-control mb-4 col-4">
@@ -42,7 +42,9 @@
         </select>
 
         <button type="submit" class="btn btn-info col-2"> Zapisz</button>
+
     </form>
+    <a th:href="@{/student/delete/{id}(id=${student.id})}" class="btn btn-danger">Usuń studenta z bazy danych</a>
 
     <hr>
 

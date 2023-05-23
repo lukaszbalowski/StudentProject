@@ -1,6 +1,9 @@
 package pl.coderslab.studentsproject.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import pl.coderslab.studentsproject.model.Student;
 import pl.coderslab.studentsproject.repository.StudentRepository;
@@ -46,6 +49,18 @@ public class StudentServiceImplement implements StudentService {
             throw new RuntimeException(" Student not found for id :: " + id);
         }
         return student;
+    }
+
+    @Override
+    public void deleteStudent(long id) {
+        this.studentRepository.deleteById(id);
+    }
+
+    @Override
+    public Page<Student> findPaginated(int pageNo, int pageSize) {
+        Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
+        return this.studentRepository.findAll(pageable);
+
     }
 
     @Override

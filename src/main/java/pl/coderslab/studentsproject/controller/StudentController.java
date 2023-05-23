@@ -2,6 +2,7 @@ package pl.coderslab.studentsproject.controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -30,15 +31,16 @@ public class StudentController {
 
     @GetMapping ("/list/students")
     public String getStudentsList(Model model) {
-     model.addAttribute("students", studentService.getAllStudents());
-        return "studentslist";
+        return findPaginated(1, model);
+//     model.addAttribute("students", studentService.getAllStudents());
+//        return "studentslist";
     }
 
 
     @PostMapping("/list/students/search")
     public String searchStudents(@RequestParam("lastName") String lastName, Model model) {
         List<Student> foundStudents = studentService.searchStudentsByLastName(lastName);
-        model.addAttribute("students", foundStudents);
+        model.addAttribute("studentList", foundStudents); // tutaj zmieniłem z "students" na "studentList"
         return "studentslist";
     }
 
@@ -51,7 +53,7 @@ public class StudentController {
         }
 
         List<Student> filteredStudents = studentService.filterStudentsByClassId(classId);
-        model.addAttribute("students", filteredStudents);
+        model.addAttribute("studentList", filteredStudents);   // tutaj zmieniłem z "students" na "studentList"
         return "studentslist";
     }
 
@@ -74,7 +76,6 @@ public class StudentController {
         model.addAttribute("student", student);
         return "addstudent";
 
-
     }
 
 
@@ -94,14 +95,31 @@ public class StudentController {
 
     @GetMapping ("/student/edit/{id}")
     public String editStudentForm(@PathVariable (value = "id") long id, Model model) {
-        // get student from the service
-        Student student = studentService.getStudentById(id);
 
-        // set student as a model attribute to pre-populate the form
+        Student student = studentService.getStudentById(id);
         model.addAttribute("student", student);
         return "editstudent";
     }
 
+    @GetMapping ("/student/delete/{id}")
+    public String deleteStudent(@PathVariable (value = "id") long id) {
 
+        this.studentService.deleteStudent(id);
+        return "redirect:/list/students";
+    }
+
+    @GetMapping("list/students/page/{pageNo}")
+    public String findPaginated(@PathVariable (value = "pageNo") int pageNo, Model model) {
+        int pageSize = 10;
+
+        Page <Student> page = studentService.findPaginated(pageNo, pageSize);
+        List <Student> studentList = page.getContent();
+
+        model.addAttribute("currentPage", pageNo);
+        model.addAttribute("totalPages", page.getTotalPages());
+        model.addAttribute("totalItems", page.getTotalElements());
+        model.addAttribute("studentList", studentList);
+        return "studentslist";
+    }
 
 }

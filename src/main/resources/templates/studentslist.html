@@ -45,12 +45,13 @@
             <th>Data urodzenia Ucznia</th>
             <th>Klasa</th>
             <th>Data rozpoczęcia nauki Ucznia</th>
-            <th>Działania</th>
+            <th>Działania-edytuj</th>
+            <th>Działania - usuń</th>
 
         </tr>
         </thead>
         <tbody>
-        <tr th:each="student : ${students}">
+        <tr th:each="student : ${studentList}">
             <td th:text="${student.firstName}"></td>
             <td th:text="${student.lastName}"></td>
             <td th:text="${student.email}"></td>
@@ -58,13 +59,37 @@
             <td th:text="${student.birthDate}"></td>
             <td th:text="${student.classId}"></td>
             <td th:text="${student.studyStartDate}"></td>
-            <td><a th:href="@{'/student/details/' + ${student.id}}" class="btn btn-primary">Pokaż</a> <a th:href="@{/student/edit/{id}(id=${student.id})}" class="btn btn-primary">Edytuj</a> </td>
-
+            <td><a th:href="@{/student/details/{id}(id=${student.id})}" class="btn btn-primary">Pokaż</a></td>
+            <td><a th:href="@{/student/edit/{id}(id=${student.id})}" class="btn btn-primary">Edytuj</a></td>
 
         </tr>
 
         </tbody>
     </table>
+
+   </div>
+<div th:if="${totalPages > 1}">
+    <div class="row col-sm-10">
+        <div class="col-sm-2">
+            Liczba pozycji: [[${totalItems}]]
+        </div>
+        <div class="col-sm-1">
+            <span th:each="i: ${#numbers.sequence(1, totalPages)}">
+      <a th:if="${currentPage != i}" th:href="@{'/list/students/page/' + ${i}}">[[${i}]]</a>
+      <span th:unless="${currentPage != i}">[[${i}]]</span> &nbsp; &nbsp;
+            </span>
+        </div>
+        <div class="col-sm-1">
+            <a th:if="${currentPage < totalPages}" th:href="@{'/list/students/page/' + ${currentPage + 1}}">Next</a>
+            <span th:unless="${currentPage < totalPages}">Next</span>
+        </div>
+
+        <div class="col-sm-1">
+            <a th:if="${currentPage < totalPages}" th:href="@{'/list/students/page/' + ${totalPages}}">Last</a>
+            <span th:unless="${currentPage < totalPages}">Last</span>
+        </div>
+    </div>
 </div>
+
 </body>
 </html>
