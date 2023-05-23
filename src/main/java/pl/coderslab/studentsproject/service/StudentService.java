@@ -9,7 +9,8 @@ public interface StudentService {
     List<Student> getAllStudents();
     List<Student> searchStudentsByLastName(String lastName);
     List<Student> filterStudentsByClassId(int classId);
-    Student getStudentById(long studentId);
+    Student getStudentById(long id);
+
 
     void saveStudent(Student student);
 

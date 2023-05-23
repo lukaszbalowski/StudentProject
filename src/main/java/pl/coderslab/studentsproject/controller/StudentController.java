@@ -92,6 +92,16 @@ public class StudentController {
         return "redirect:/";
     }
 
+    @GetMapping ("/student/edit/{id}")
+    public String editStudentForm(@PathVariable (value = "id") long id, Model model) {
+        // get student from the service
+        Student student = studentService.getStudentById(id);
+
+        // set student as a model attribute to pre-populate the form
+        model.addAttribute("student", student);
+        return "editstudent";
+    }
+
 
 
 }
