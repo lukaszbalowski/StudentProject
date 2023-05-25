@@ -31,7 +31,7 @@ public class StudentController {
 
     @GetMapping ("/list/students")
     public String getStudentsList(Model model) {
-        return findPaginated(1, model);
+        return findPaginated(1, "lastName", "asc", model);
 //     model.addAttribute("students", studentService.getAllStudents());
 //        return "studentslist";
     }
@@ -109,15 +109,23 @@ public class StudentController {
     }
 
     @GetMapping("list/students/page/{pageNo}")
-    public String findPaginated(@PathVariable (value = "pageNo") int pageNo, Model model) {
+    public String findPaginated(@PathVariable (value = "pageNo") int pageNo,
+                                @RequestParam("sortField") String sortField,
+                                @RequestParam("sortDir") String sortDir,
+                                Model model) {
         int pageSize = 10;
 
-        Page <Student> page = studentService.findPaginated(pageNo, pageSize);
+        Page <Student> page = studentService.findPaginated(pageNo, pageSize, sortField, sortDir);
         List <Student> studentList = page.getContent();
 
         model.addAttribute("currentPage", pageNo);
         model.addAttribute("totalPages", page.getTotalPages());
         model.addAttribute("totalItems", page.getTotalElements());
+
+        model.addAttribute("sortField", sortField);
+        model.addAttribute("sortDir", sortDir);
+        model.addAttribute("reverseSortDir", sortDir.equals("asc") ? "desc" : "asc");
+
         model.addAttribute("studentList", studentList);
         return "studentslist";
     }
