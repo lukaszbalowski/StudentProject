@@ -3,8 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        .table-container {
+            width: 40%;
+            margin: 0 auto;
+            text-align: center;
+        }
+    </style>
+
 </head>
 <body>
+
+<div class="table-container">
+    <table class="table">
+        <tr>
+            <td>
+                <a th:href="@{/}" class="btn btn-primary btn-sm mb-3">Strona główna</a>
+            </td>
+            <td>
+                <a th:href="@{/list/students}" class="btn btn-primary btn-sm mb-3">lista studentów</a>
+            </td>
+            <td>
+                <a th:href="@{/addparentform}" class="btn btn-primary btn-sm mb-3">dodaj studenta</a>
+            </td>
+            <td>
+                <a href="/list/parents" class="btn btn-primary btn-sm mb-3">lista rodziców</a>
+            </td>
+            <td>
+                <a href="/list/classes" class="btn btn-primary btn-sm mb-3">lista klas</a>
+            </td>
+        </tr>
+    </table>
+</div>
 
 Ta funkcja jeszcze nie działa
 

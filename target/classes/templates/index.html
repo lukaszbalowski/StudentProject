@@ -5,16 +5,78 @@
     <title>Student Management System</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <style>
+        .table-container {
+            width: 40%;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .cat-image {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+    </style>
 
 </head>
 <body>
 
+<div class="table-container">
+    <table class="table">
+        <tr>
+            <td>
+                <a th:href="@{/}" class="btn btn-primary btn-sm mb-3">Strona główna</a>
+            </td>
+            <td>
+                <a th:href="@{/list/students}" class="btn btn-primary btn-sm mb-3">lista studentów</a>
+            </td>
+            <td>
+                <a th:href="@{/addparentform}" class="btn btn-primary btn-sm mb-3">dodaj studenta</a>
+            </td>
+            <td>
+                <a href="/list/parents" class="btn btn-primary btn-sm mb-3">lista rodziców</a>
+            </td>
+            <td>
+                <a href="/list/classes" class="btn btn-primary btn-sm mb-3">lista klas</a>
+            </td>
+        </tr>
+    </table>
+</div>
+    <center>
 
-<a th:href="@{/main}" class="btn btn-primary btn-sm mb-3">Strona główna</a> <br>
-<a th:href="@{/list/students}" class="btn btn-primary btn-sm mb-3">lista studentów</a> <br>
-<a th:href="@{/addparentform}" class="btn btn-primary btn-sm mb-3">dodaj studenta</a> <br>
-<a href="/list/parents" class="btn btn-primary btn-sm mb-3">lista rodziców</a> <br>
-<a href="/list/classes" class="btn btn-primary btn-sm mb-3">lista klas</a> <br>
+        <h2>Kot na dziś</h2>
+<div id="cat-container">
+    <img id="cat-image" class="cat-image" src="" alt="Losowe zdjęcie kota">
+<!--    <button id="new-cat-button">Wygeneruj nowe zdjęcie kota</button>-->
+</div>
+
+
+
+        <script>
+            $(document).ready(function() {
+                var apiKey = "live_Nkb0XcbmOA1F8os9JxMHAnu76T9Mrx4J7QvpEt8rqTSmwKdPnlcEI3cmDIPEhhU9";
+                var apiUrl = "https://api.thecatapi.com/v1/images/search";
+
+                function fetchRandomCatImage() {
+                    $.ajax({
+                        url: apiUrl,
+                        headers: {
+                            "x-api-key": apiKey
+                        },
+                        success: function(data) {
+                            var catImageUrl = data[0].url;
+                            $("#cat-image").attr("src", catImageUrl);
+                        }
+                    });
+                }
+
+                fetchRandomCatImage();
+            });
+        </script>
+    </center>
+
 
 
 </body>
