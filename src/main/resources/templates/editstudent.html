@@ -31,7 +31,12 @@
 
         <input type="text" th:field="*{studyStartDate}" class="form-control mb-4 col-4">
 
-        <input type="text" th:field="*{parentId}" class="form-control mb-4 col-4">
+<!--        <input type="text" th:field="*{parentId}" class="form-control mb-4 col-4">-->
+
+        <select class="form-control mb-4 col-4" th:field="*{parentId}">
+            <option value="0">wybierz rodzica</option>
+            <option th:each="parent : ${parents}" th:value="${parent.id}" th:text="${parent.firstName + ' ' + parent.lastName}" th:selected="${parent.id == student.parentId}"></option>
+        </select>
 
 
         <select class="form-control mb-4 col-4" th:field="*{classId}">

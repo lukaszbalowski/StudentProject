@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Parent Details</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+</head>
+
+<body>
+<div class="container">
+    <h1>Parent Details</h1>
+    <hr>
+
+<!--    <div class="row">-->
+<!--        <div class="col-md-4">-->
+<!--            <strong>Parent ID:</strong>-->
+<!--        </div>-->
+<!--        <div class="col-md-8" th:text="${parent.id}"></div>-->
+<!--    </div>-->
+
+<!--    <div class="row">-->
+<!--        <div class="col-md-4">-->
+<!--            <strong>First Name:</strong>-->
+<!--        </div>-->
+<!--        <div class="col-md-8" th:text="${parent.firstName}"></div>-->
+<!--    </div>-->
+
+<!--    <div class="row">-->
+<!--        <div class="col-md-4">-->
+<!--            <strong>Last Name:</strong>-->
+<!--        </div>-->
+<!--        <div class="col-md-8" th:text="${parent.lastName}"></div>-->
+<!--    </div>-->
+
+<!--    <div class="row">-->
+<!--        <div class="col-md-4">-->
+<!--            <strong>Email:</strong>-->
+<!--        </div>-->
+<!--        <div class="col-md-8" th:text="${parent.email}"></div>-->
+<!--    </div>-->
+
+<!--    <div class="row">-->
+<!--        <div class="col-md-4">-->
+<!--            <strong>Phone:</strong>-->
+<!--        </div>-->
+<!--        <div class="col-md-8" th:text="${parent.phone}"></div>-->
+<!--    </div>-->
+
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>email</th>
+            <th>phone</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td th:text="${parent.firstName}"></td>
+            <td th:text="${parent.lastName}"></td>
+            <td th:text="${parent.email}"></td>
+            <td th:text="${parent.phone}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <hr>
+
+    <h2>Students</h2>
+
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="student : ${studentsByParentId}">
+            <td th:text="${student.firstName}"></td>
+            <td th:text="${student.lastName}"></td>
+            <td>
+                <a th:href="@{/student/details/{id}(id=${student.id})}" class="btn btn-primary">Pokaż Studenta</a>
+                <a th:href="@{/student/edit/{id}(id=${student.id})}" class="btn btn-primary">Edytuj Studenta</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+<!--    <div class="row">-->
+<!--        <div class="col-md-4">-->
+<!--            <strong>Students:</strong>-->
+<!--        </div>-->
+<!--        <div class="col-md-8">-->
+<!--            <ul>-->
+<!--                <li th:each="student : ${studentsByParentId}" th:text="${student.firstName + ' ' + student.lastName}"></li>-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--    </div>-->
+
+    <a th:href="@{/notyet}" class="btn btn-primary">Edytuj Rodzica</a>
+    <a th:href="@{/list/parents}" class="btn btn-info">Back to Parents List</a>
+</div>
+</body>
+
+</html>

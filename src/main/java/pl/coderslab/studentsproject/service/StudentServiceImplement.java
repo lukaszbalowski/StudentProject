@@ -90,6 +90,11 @@ public class StudentServiceImplement implements StudentService {
     public List<Parent> getAllParents() {
         return parentService.getAllParents();
     }
+
+    @Override
+    public List<Student> getStudentsByParentId(long parentId) {
+        return studentRepository.findByParentId(parentId);
+    }
 }
 
 

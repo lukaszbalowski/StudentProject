@@ -98,6 +98,8 @@ public class StudentController {
 
         Student student = studentService.getStudentById(id);
         model.addAttribute("student", student);
+        List<Parent> parents = parentService.getAllParentsSortedByIdDesc();
+        model.addAttribute("parents", parents);
         return "editstudent";
     }
 

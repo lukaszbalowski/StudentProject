@@ -20,6 +20,8 @@ public interface StudentService {
 
     List<Parent> getAllParents();
 
+    List<Student> getStudentsByParentId(long parentId);
+
 
 
 
