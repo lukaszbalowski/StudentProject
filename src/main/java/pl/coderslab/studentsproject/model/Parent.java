@@ -1,6 +1,7 @@
 package pl.coderslab.studentsproject.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -27,4 +28,13 @@ public class Parent {
     @Column(name = "phone")
     private String phone;
 
+    public Parent(String firstName, String lastName, String email, String phone) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phone = phone;
+    }
+
+    public Parent() {
+    }
 }

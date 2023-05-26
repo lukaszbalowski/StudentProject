@@ -11,5 +11,6 @@ public interface ParentService {
         Parent getParentById(long parentId);
 
 
-    }
+    List<Parent> getAllParentsSortedByIdDesc();
+}
 

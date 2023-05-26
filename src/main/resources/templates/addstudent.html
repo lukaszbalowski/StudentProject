@@ -13,6 +13,9 @@
     <hr>
     <h2>Add new Student</h2>
 
+
+
+
     <form action="#" th:action="@{/saveStudent}" th:object="${student}" method="POST">
         <input type="text" th:field="*{firstName}" placeholder="Imie" class="form-control mb-4 col-4">
 
@@ -26,15 +29,29 @@
 
         <input type="text" th:field="*{studyStartDate}" placeholder="Data rozpoczęcia nauki" class="form-control mb-4 col-4">
 
-        <input type="text" th:field="*{parentId}" placeholder="Id Rodzica" class="form-control mb-4 col-4">
 
-        <!--        <input type="text" th:field="*{classId}" placeholder="Klasa" class="form-control mb-4 col-4">-->
+<!--        <input type="text"  th:field="*{parentId}"  class="form-control mb-4 col-4">-->
+
+        <select class="form-control mb-4 col-4" th:field="*{parentId}" id="parentId">
+            <option value="" selected>Wybierz Rodzica</option>
+            <option th:each="parent : ${parents}" th:value="${parent.id}" th:text="${parent.firstName + ' ' + parent.lastName}"
+                th:selected="${index == 0}"></option>
+        </select>
+
+<!--        <select class="form-control mb-4 col-4" th:field="*{parentId}" id="parentId">-->
+<!--            <option value="" th:if="${parents} == null || ${parents.isEmpty()}" selected>Select Parent</option>-->
+<!--            <option th:each="parent, index : ${parents}" th:value="${parent.id}" th:text="${parent.firstName + ' ' + parent.lastName}"-->
+<!--                    th:selected="${index == 0}"></option>-->
+<!--        </select>-->
+
+
+
         <select class="form-control mb-4 col-4" th:field="*{classId}">
             <option value="0">wybierz klasę</option>
             <option value="1">pierwsza klasa</option>
             <option value="2">druga klasa</option>
             <option value="3">trzecia klasa</option>
-            <option value="4">czwarta pozycja</option>
+            <option value="4">czwarta klasa</option>
         </select>
 
         <button type="submit" class="btn btn-info col-2">Save Student</button>

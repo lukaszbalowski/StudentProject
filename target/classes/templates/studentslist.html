@@ -30,7 +30,7 @@
     <a href="/list/students">Kasuj filtr</a>
 <hr><br>
 
-    <a th:href="@{/student/add}" class="btn btn-primary btn-sm mb-3">dodaj studenta</a> <br>
+    <a th:href="@{/addparentform}" class="btn btn-primary btn-sm mb-3">dodaj studenta</a> <br>
 
 </center>
 <div class="container my-2">
@@ -38,15 +38,19 @@
     <table border="1" class = "table table-striped table-responsive-md">
         <thead>
         <tr>
-            <th>Imię Ucznia</th>
-            <th>Nazwisko Ucznia</th>
-            <th>email Ucznia</th>
-            <th>Telefon Ucznia</th>
-            <th>Data urodzenia Ucznia</th>
+            <th>
+                <a th:href="@{'/list/students/page/' + ${currentPage} + '?sortField=firstName&sortDir=' + ${reverseSortDir}}">
+                    Imię ucznia</a>
+            </th>
+            <th>
+                <a th:href="@{'/list/students/page/' + ${currentPage} + '?sortField=lastName&sortDir=' + ${reverseSortDir}}">
+                    Nazwisko Ucznia</a>
+            </th>
+
             <th>Klasa</th>
             <th>Data rozpoczęcia nauki Ucznia</th>
-            <th>Działania-edytuj</th>
-            <th>Działania - usuń</th>
+            <th>Działania</th>
+
 
         </tr>
         </thead>
@@ -54,13 +58,11 @@
         <tr th:each="student : ${studentList}">
             <td th:text="${student.firstName}"></td>
             <td th:text="${student.lastName}"></td>
-            <td th:text="${student.email}"></td>
-            <td th:text="${student.phone}"></td>
-            <td th:text="${student.birthDate}"></td>
+
             <td th:text="${student.classId}"></td>
             <td th:text="${student.studyStartDate}"></td>
-            <td><a th:href="@{/student/details/{id}(id=${student.id})}" class="btn btn-primary">Pokaż</a></td>
-            <td><a th:href="@{/student/edit/{id}(id=${student.id})}" class="btn btn-primary">Edytuj</a></td>
+            <td><a th:href="@{/student/details/{id}(id=${student.id})}" class="btn btn-primary">Pokaż</a> <a th:href="@{/student/edit/{id}(id=${student.id})}" class="btn btn-primary">Edytuj</a></td>
+            
 
         </tr>
 
@@ -75,17 +77,17 @@
         </div>
         <div class="col-sm-1">
             <span th:each="i: ${#numbers.sequence(1, totalPages)}">
-      <a th:if="${currentPage != i}" th:href="@{'/list/students/page/' + ${i}}">[[${i}]]</a>
+      <a th:if="${currentPage != i}" th:href="@{'/list/students/page/' + ${i}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">[[${i}]]</a>
       <span th:unless="${currentPage != i}">[[${i}]]</span> &nbsp; &nbsp;
             </span>
         </div>
         <div class="col-sm-1">
-            <a th:if="${currentPage < totalPages}" th:href="@{'/list/students/page/' + ${currentPage + 1}}">Next</a>
+            <a th:if="${currentPage < totalPages}" th:href="@{'/list/students/page/' + ${currentPage + 1}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir} }">Next</a>
             <span th:unless="${currentPage < totalPages}">Next</span>
         </div>
 
         <div class="col-sm-1">
-            <a th:if="${currentPage < totalPages}" th:href="@{'/list/students/page/' + ${totalPages}}">Last</a>
+            <a th:if="${currentPage < totalPages}" th:href="@{'/list/students/page/' + ${totalPages} + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Last</a>
             <span th:unless="${currentPage < totalPages}">Last</span>
         </div>
     </div>

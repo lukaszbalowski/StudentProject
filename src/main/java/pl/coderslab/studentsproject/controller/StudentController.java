@@ -130,4 +130,12 @@ public class StudentController {
         return "studentslist";
     }
 
+    @GetMapping ("/addstudent")
+    public String showAddStudentForm(Model model) {
+        model.addAttribute("student", new Student());
+        List<Parent> parents = parentService.getAllParentsSortedByIdDesc();
+        model.addAttribute("parents", parents);
+        return "addstudent";
+    }
+
 }

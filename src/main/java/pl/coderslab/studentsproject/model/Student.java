@@ -35,11 +35,11 @@ public class Student {
    private String studyStartDate;
 
    @Column (name="parent_id")
-   private int parentId;
+   private Integer parentId;
 
 
    @Column(name="class_id")
-   private int classId;
+   private Integer classId;
 
 
 

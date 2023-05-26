@@ -1,5 +1,6 @@
 package pl.coderslab.studentsproject.service;
 import org.springframework.data.domain.Page;
+import pl.coderslab.studentsproject.model.Parent;
 import pl.coderslab.studentsproject.model.Student;
 import java.util.List;
 
@@ -16,6 +17,10 @@ public interface StudentService {
 
 //    Page<Student> findPaginated(int pageNo, int pageSize, String sortField, String sortDirection);
     Page<Student> findPaginated(int pageNo, int pageSize, String sortField, String sortDirection);
+
+    List<Parent> getAllParents();
+
+
 
 
 

@@ -6,6 +6,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import pl.coderslab.studentsproject.model.Parent;
 import pl.coderslab.studentsproject.model.Student;
 import pl.coderslab.studentsproject.repository.StudentRepository;
 
@@ -18,6 +19,9 @@ public class StudentServiceImplement implements StudentService {
 
     @Autowired
     private StudentRepository studentRepository;
+
+    @Autowired
+    ParentService parentService;
 
     @Override
     public List<Student> getAllStudents() {
@@ -76,16 +80,19 @@ public class StudentServiceImplement implements StudentService {
     }
 
 
-
-
-
-
     @Override
     public void saveStudent(Student student) {
         this.studentRepository.save(student);
     }
 
+
+    @Override
+    public List<Parent> getAllParents() {
+        return parentService.getAllParents();
     }
+}
+
+
 
 
 
