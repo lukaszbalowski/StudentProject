@@ -74,21 +74,6 @@ public class ParentController {
         return "editparent";
     }
 
-//    @PostMapping ("/parent/edit/{parentId}")
-//    public String processEditParentForm(@PathVariable long parentId,
-//                                        @RequestParam("firstName") String firstName,
-//                                        @RequestParam("lastName") String lastName,
-//                                        @RequestParam("email") String email,
-//                                        @RequestParam("phone") String phone) {
-//        Parent parent = parentService.getParentById(parentId);
-//        parent.setFirstName(firstName);
-//        parent.setLastName(lastName);
-//        parent.setEmail(email);
-//        parent.setPhone(phone);
-//        parentService.updateParent(parent);
-//        return "redirect:/parent/details/{parentId}";
-//    }
-
 
     @PostMapping ("/parent/edit/{parentId}")
     public String processEditParentForm(@PathVariable long parentId, @ModelAttribute("parent") Parent parent) {

@@ -12,7 +12,7 @@ import lombok.Setter;
 public class Parent {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)   // TODO dodać relację many to many z students
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "parent_id")
     private long id;
 

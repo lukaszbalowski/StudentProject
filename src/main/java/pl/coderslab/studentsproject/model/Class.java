@@ -25,4 +25,12 @@ public class Class {
 
     @Column(name = "description", length = 1000)
     private String description;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "class_teacher",
+            joinColumns = @JoinColumn(name = "class_id"),
+            inverseJoinColumns = @JoinColumn(name = "teacher_id")
+    )
+    private List<Teacher> teachers;
 }

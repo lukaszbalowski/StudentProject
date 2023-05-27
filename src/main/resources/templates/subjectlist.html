@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+  <meta charset="UTF-8">
+  <title>Subjects List</title>
+</head>
+<body>
+<h1>Subjects List</h1>
+<table>
+  <thead>
+  <tr>
+    <th>Subject ID</th>
+    <th>Subject Name</th>
+    <th>Subject Description</th>
+  </tr>
+  </thead>
+  <tbody>
+
+  <tr th:each="subject : ${subjectlist}">
+    <td th:text="${subject.id}"></td>
+    <td th:text="${subject.subjectName}"></td>
+    <td th:text="${subject.subjectDescription}"></td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>
