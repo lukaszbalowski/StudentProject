@@ -9,7 +9,7 @@
           crossorigin="anonymous">
     <style>
         .table-container {
-            width: 40%;
+            width: 30%;
             margin: 0 auto;
             text-align: center;
         }
@@ -27,14 +27,14 @@
             <td>
                 <a th:href="@{/list/students}" class="btn btn-primary btn-sm mb-3">lista studentów</a>
             </td>
-            <td>
-                <a th:href="@{/addparentform}" class="btn btn-primary btn-sm mb-3">dodaj studenta</a>
-            </td>
+            <!--      <td>-->
+            <!--        <a th:href="@{/addparentform}" class="btn btn-primary btn-sm mb-3">dodaj studenta</a>-->
+            <!--      </td>-->
             <td>
                 <a href="/list/parents" class="btn btn-primary btn-sm mb-3">lista rodziców</a>
             </td>
             <td>
-                <a href="/list/classes" class="btn btn-primary btn-sm mb-3">lista klas</a>
+                <a href="/list/classes" class="btn btn-info btn-sm mb-3">lista klas</a>
             </td>
         </tr>
     </table>
@@ -51,18 +51,6 @@
 
     </ul>
 
-<!--    <h3>Studenci:</h3>-->
-<!--    <ul>-->
-<!--        <th:block th:each="student : ${classDetails.students}">-->
-<!--            <li>Imię: <span th:text="${student.firstName}"></span></li>-->
-<!--            <li>Nazwisko: <span th:text="${student.lastName}"></span></li>-->
-<!--            <li>Email: <span th:text="${student.email}"></span></li>-->
-<!--            <li>Numer telefonu: <span th:text="${student.phone}"></span></li>-->
-<!--            <li>Data urodzenia: <span th:text="${student.birthDate}"></span></li>-->
-<!--            <li>Data rozpoczęcia nauki: <span th:text="${student.studyStartDate}"></span></li>-->
-<!--            <br/>-->
-<!--        </th:block>-->
-<!--    </ul>-->
 
     <h3>Studenci przypisani do klasy:</h3>
     <table class="table">

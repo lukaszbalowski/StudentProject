@@ -10,7 +10,7 @@
           crossorigin="anonymous">
     <style>
         .table-container {
-            width: 40%;
+            width: 30%;
             margin: 0 auto;
             text-align: center;
         }
@@ -26,11 +26,11 @@
                 <a th:href="@{/}" class="btn btn-primary btn-sm mb-3">Strona główna</a>
             </td>
             <td>
-                <a th:href="@{/list/students}" class="btn btn-primary btn-sm mb-3">lista studentów</a>
+                <a th:href="@{/list/students}" class="btn btn-info btn-sm mb-3">lista studentów</a>
             </td>
-            <td>
-                <a th:href="@{/addparentform}" class="btn btn-primary btn-sm mb-3">dodaj studenta</a>
-            </td>
+<!--            <td>-->
+<!--                <a th:href="@{/addparentform}" class="btn btn-primary btn-sm mb-3">dodaj studenta</a>-->
+<!--            </td>-->
             <td>
                 <a href="/list/parents" class="btn btn-primary btn-sm mb-3">lista rodziców</a>
             </td>
@@ -78,7 +78,7 @@
             </th>
 
             <th>Klasa</th>
-            <th>Data rozpoczęcia nauki Ucznia</th>
+<!--            <th>Data rozpoczęcia nauki</th>-->
             <th>Działania</th>
 
 
@@ -90,7 +90,7 @@
             <td th:text="${student.lastName}"></td>
 
             <td th:text="${student.classId}"></td>
-            <td th:text="${student.studyStartDate}"></td>
+<!--            <td th:text="${student.studyStartDate}"></td>-->
             <td><a th:href="@{/student/details/{id}(id=${student.id})}" class="btn btn-primary">Pokaż</a> <a th:href="@{/student/edit/{id}(id=${student.id})}" class="btn btn-primary">Edytuj</a></td>
 
 

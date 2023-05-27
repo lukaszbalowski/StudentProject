@@ -42,6 +42,10 @@ public class ClassServiceImplement implements ClassService {
                 .orElseThrow(() -> new IllegalArgumentException("Niepoprawna nazwa klasy: " + className));
     }
 
+    @Override
+    public Class saceClass(Class classObj) {
+        return classRepository.save(classObj);
+    }
 
 
 }

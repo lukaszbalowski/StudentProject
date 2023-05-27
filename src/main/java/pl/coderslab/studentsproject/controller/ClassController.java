@@ -27,5 +27,12 @@ public class ClassController {
         model.addAttribute("classDetails", classDetails);
         return "classdetails";
     }
+    @GetMapping("classedit/{id}")
+    public String editClass(@PathVariable("id") long classId, Model model) {
+        Class classDetails = classService.getClassById(classId);
+        model.addAttribute("classDetails", classDetails);
+        return "classedit";
+    }
+
 
 }

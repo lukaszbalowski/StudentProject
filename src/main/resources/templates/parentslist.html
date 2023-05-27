@@ -10,7 +10,7 @@
           crossorigin="anonymous">
     <style>
         .table-container {
-            width: 40%;
+            width: 30%;
             margin: 0 auto;
             text-align: center;
         }
@@ -28,9 +28,9 @@
             <td>
                 <a th:href="@{/list/students}" class="btn btn-primary btn-sm mb-3">lista studentów</a>
             </td>
-            <td>
-                <a th:href="@{/addparentform}" class="btn btn-primary btn-sm mb-3">dodaj studenta</a>
-            </td>
+<!--            <td>-->
+<!--                <a th:href="@{/addparentform}" class="btn btn-primary btn-sm mb-3">dodaj studenta</a>-->
+<!--            </td>-->
             <td>
                 <a href="/list/parents" class="btn btn-info btn-sm mb-3">lista rodziców</a>
             </td>
@@ -49,8 +49,8 @@
         <tr>
             <th>Imię rodzica</th>
             <th>Nazwisko rodzica</th>
-            <th>email rodzica</th>
-            <th>Telefon telefon rodzica</th>
+<!--            <th>email rodzica</th>-->
+<!--            <th>Telefon telefon rodzica</th>-->
             <th>Akcje</th>
 
         </tr>
@@ -59,9 +59,10 @@
         <tr th:each="parent : ${parents}">
             <td th:text="${parent.firstName}"></td>
             <td th:text="${parent.lastName}"></td>
-            <td th:text="${parent.email}"></td>
-            <td th:text="${parent.phone}"></td>
-            <td><a th:href="@{/parent/details/{id}(id=${parent.id})}" class="btn btn-primary">Pokaż</a><a th:href="@{/parent/edit/{parentId}(parentId=${parent.id})}" class="btn btn-primary">Edytuj</a></td>
+<!--            <td th:text="${parent.email}"></td>-->
+<!--            <td th:text="${parent.phone}"></td>-->
+            <td><a th:href="@{/parent/details/{id}(id=${parent.id})}" class="btn btn-primary">Pokaż</a>
+                <a th:href="@{/parent/edit/{parentId}(parentId=${parent.id})}" class="btn btn-primary">Edytuj</a></td>
 
 
         </tr>
