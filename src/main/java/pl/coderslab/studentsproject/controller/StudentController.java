@@ -140,4 +140,11 @@ public class StudentController {
         return "addstudent";
     }
 
+    @GetMapping ("/delete-confirmation/{id}")
+    public String showDeleteConfirmation(@PathVariable (value = "id") long id, Model model) {
+        Student student = studentService.getStudentById(id);
+        model.addAttribute("student", student);
+        return "deleteconfirmation";
+    }
+
 }
