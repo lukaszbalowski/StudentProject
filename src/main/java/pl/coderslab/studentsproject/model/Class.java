@@ -20,8 +20,8 @@ public class Class {
     @Column(name = "class_name")
     private String className;
 
-//    @OneToMany(mappedBy = "classId", cascade = CascadeType.ALL)
-//    private List<Student> students;
+    @OneToMany(mappedBy = "classId", cascade = CascadeType.ALL)
+    private List<Student> students;
 
     @Column(name = "description", length = 1000)
     private String description;

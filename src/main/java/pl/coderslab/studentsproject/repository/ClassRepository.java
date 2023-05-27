@@ -12,4 +12,6 @@ public interface ClassRepository extends JpaRepository<Class, Long> {
 
     Optional<Class> findById(Long classId);
 
+    Optional<Class> findByClassName(String className);
+
 }

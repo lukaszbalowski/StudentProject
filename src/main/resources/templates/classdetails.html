@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Szczegóły klasy</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+    <style>
+        .table-container {
+            width: 40%;
+            margin: 0 auto;
+            text-align: center;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="table-container">
+    <table class="table">
+        <tr>
+            <td>
+                <a th:href="@{/}" class="btn btn-primary btn-sm mb-3">Strona główna</a>
+            </td>
+            <td>
+                <a th:href="@{/list/students}" class="btn btn-primary btn-sm mb-3">lista studentów</a>
+            </td>
+            <td>
+                <a th:href="@{/addparentform}" class="btn btn-primary btn-sm mb-3">dodaj studenta</a>
+            </td>
+            <td>
+                <a href="/list/parents" class="btn btn-primary btn-sm mb-3">lista rodziców</a>
+            </td>
+            <td>
+                <a href="/list/classes" class="btn btn-primary btn-sm mb-3">lista klas</a>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div class="container my-2">
+    <h1>Szczegóły klasy</h1>
+    <h3>Klasa:</h3>
+    <ul>
+        <li>Id: <span th:text="${classDetails.id}"></span></li>
+        <li>Nazwa klasy: <span th:text="${classDetails.className}"></span></li>
+        <li>Opis klasy: <span th:text="${classDetails.description}"></span></li>
+        <li>Liczba uczniów: <span th:text="${#lists.size(classDetails.students)}"></span></li>
+
+    </ul>
+
+<!--    <h3>Studenci:</h3>-->
+<!--    <ul>-->
+<!--        <th:block th:each="student : ${classDetails.students}">-->
+<!--            <li>Imię: <span th:text="${student.firstName}"></span></li>-->
+<!--            <li>Nazwisko: <span th:text="${student.lastName}"></span></li>-->
+<!--            <li>Email: <span th:text="${student.email}"></span></li>-->
+<!--            <li>Numer telefonu: <span th:text="${student.phone}"></span></li>-->
+<!--            <li>Data urodzenia: <span th:text="${student.birthDate}"></span></li>-->
+<!--            <li>Data rozpoczęcia nauki: <span th:text="${student.studyStartDate}"></span></li>-->
+<!--            <br/>-->
+<!--        </th:block>-->
+<!--    </ul>-->
+
+    <h3>Studenci przypisani do klasy:</h3>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Imię i nazwisko</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="student : ${classDetails.students}">
+            <tr>
+                <td>
+                    <span th:text="${student.firstName}"></span>
+                    <span th:text="${student.lastName}"></span>
+                </td>
+                <td>
+                    <a th:href="@{/student/details/{id}(id=${student.id})}" class="btn btn-primary">Pokaż</a>
+                </td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+
+    <a href="/list/students" class="btn btn-primary">Powrót</a>
+
+</div>
+</body>
+</html>

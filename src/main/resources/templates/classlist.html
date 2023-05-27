@@ -35,7 +35,7 @@
         <a href="/list/parents" class="btn btn-primary btn-sm mb-3">lista rodziców</a>
       </td>
       <td>
-        <a href="/list/classes" class="btn btn-primary btn-sm mb-3">lista klas</a>
+        <a href="/list/classes" class="btn btn-info btn-sm mb-3">lista klas</a>
       </td>
     </tr>
   </table>
@@ -43,27 +43,24 @@
 
 <div class="container my-2">
   <h1>Lista klas</h1>
-  <table border="1" class = "table table-striped table-responsive-md">
+  <table border="1" class="table table-striped table-responsive-md">
     <thead>
     <tr>
       <th>Nazwa klasy</th>
       <th>Opis klasy</th>
       <th>Liczba uczniów</th>
       <th>Akcje</th>
-
-
     </tr>
     </thead>
     <tbody>
     <tr th:each="class : ${classes}">
       <td th:text="${class.className}"></td>
-      <td th:text="${class.Description}"></td>
+      <td th:text="${class.description}"></td>
       <td>Liczba Studentów</td>
-      <td><a th:href="@{/notyet}" class="btn btn-primary">Pokaż</a>, <a th:href="@{/notyet}" class="btn btn-primary">Edytuj</a></td>
-
-
-
-
+      <td>
+        <a th:href="@{'/classdetails/' + ${class.id}}" class="btn btn-primary">Pokaż</a>,
+        <a th:href="@{/notyet}" class="btn btn-primary">Edytuj</a>
+      </td>
     </tr>
     </tbody>
   </table>

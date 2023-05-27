@@ -41,9 +41,11 @@ public class Student {
    @Column (name="parent_id")
    private Integer parentId;
 
+
+
 //   @ManyToOne
-//   @JoinColumn(name = "classId")
-//   private Class class;
+//   @JoinColumn(name = "class_id")
+//    private Class classId;
 
    @Column(name="class_id")
    private Integer classId;

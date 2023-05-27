@@ -9,5 +9,8 @@ public interface ClassService {
     List<Class> getAllClasses();
     Class getClassById(long classId);
 
+    Class getClassByName(String className);
+
+
 
 }

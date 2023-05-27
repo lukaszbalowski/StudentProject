@@ -32,7 +32,7 @@
                 <a th:href="@{/addparentform}" class="btn btn-primary btn-sm mb-3">dodaj studenta</a>
             </td>
             <td>
-                <a href="/list/parents" class="btn btn-primary btn-sm mb-3">lista rodziców</a>
+                <a href="/list/parents" class="btn btn-info btn-sm mb-3">lista rodziców</a>
             </td>
             <td>
                 <a href="/list/classes" class="btn btn-primary btn-sm mb-3">lista klas</a>
@@ -61,7 +61,7 @@
             <td th:text="${parent.lastName}"></td>
             <td th:text="${parent.email}"></td>
             <td th:text="${parent.phone}"></td>
-            <td><a th:href="@{/parent/details/{id}(id=${parent.id})}" class="btn btn-info">Pokaż</a><a th:href="@{/parent/edit/{parentId}(parentId=${parent.id})}" class="btn btn-info">Edytuj</a></td>
+            <td><a th:href="@{/parent/details/{id}(id=${parent.id})}" class="btn btn-primary">Pokaż</a><a th:href="@{/parent/edit/{parentId}(parentId=${parent.id})}" class="btn btn-primary">Edytuj</a></td>
 
 
         </tr>
