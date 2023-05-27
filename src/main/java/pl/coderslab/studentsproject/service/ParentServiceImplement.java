@@ -31,5 +31,10 @@ public class ParentServiceImplement implements ParentService {
         return parentRepository.findAll(sort);
     }
 
+    @Override
+    public void updateParent(Parent parent) {
+    parentRepository.save(parent);
+    }
+
 
 }

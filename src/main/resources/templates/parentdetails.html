@@ -133,7 +133,7 @@
 <!--        </div>-->
 <!--    </div>-->
 
-    <a th:href="@{/notyet}" class="btn btn-primary">Edytuj Rodzica</a>
+    <a th:href="@{/parent/edit/{parentId}(parentId=${parent.id})}" class="btn btn-info">Edytuj Rodzica</a>
     <a th:href="@{/list/parents}" class="btn btn-info">Back to Parents List</a>
 </div>
 </body>

@@ -3,10 +3,7 @@ package pl.coderslab.studentsproject.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import pl.coderslab.studentsproject.model.Parent;
 import pl.coderslab.studentsproject.model.Student;
 import pl.coderslab.studentsproject.repository.ParentRepository;
@@ -69,5 +66,38 @@ public class ParentController {
         model.addAttribute("studentsByParentId", studentsByParentId);
         return "parentdetails";
     }
+
+    @GetMapping("/parent/edit/{parentId}")
+    public String showEditParentForm(@PathVariable long parentId, Model model) {
+        Parent parent = parentService.getParentById(parentId);
+        model.addAttribute("parent", parent);
+        return "editparent";
+    }
+
+//    @PostMapping ("/parent/edit/{parentId}")
+//    public String processEditParentForm(@PathVariable long parentId,
+//                                        @RequestParam("firstName") String firstName,
+//                                        @RequestParam("lastName") String lastName,
+//                                        @RequestParam("email") String email,
+//                                        @RequestParam("phone") String phone) {
+//        Parent parent = parentService.getParentById(parentId);
+//        parent.setFirstName(firstName);
+//        parent.setLastName(lastName);
+//        parent.setEmail(email);
+//        parent.setPhone(phone);
+//        parentService.updateParent(parent);
+//        return "redirect:/parent/details/{parentId}";
+//    }
+
+
+    @PostMapping ("/parent/edit/{parentId}")
+    public String processEditParentForm(@PathVariable long parentId, @ModelAttribute("parent") Parent parent) {
+        parent.setId(parentId);
+        parentService.updateParent(parent);
+        return "redirect:/parent/details/{parentId}";
+
+    }
+
+
 
 }

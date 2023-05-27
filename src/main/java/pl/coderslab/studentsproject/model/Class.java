@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Table(name = "classes")
 @Getter
@@ -17,6 +19,9 @@ public class Class {
 
     @Column(name = "class_name")
     private String className;
+
+//    @OneToMany(mappedBy = "classId", cascade = CascadeType.ALL)
+//    private List<Student> students;
 
     @Column(name = "description", length = 1000)
     private String description;

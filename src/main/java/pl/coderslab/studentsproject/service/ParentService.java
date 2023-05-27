@@ -12,5 +12,8 @@ public interface ParentService {
 
 
     List<Parent> getAllParentsSortedByIdDesc();
+
+
+    void updateParent(Parent parent);
 }
 

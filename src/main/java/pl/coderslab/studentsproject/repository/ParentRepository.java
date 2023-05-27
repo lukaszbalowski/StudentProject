@@ -16,6 +16,8 @@ public interface ParentRepository extends JpaRepository<Parent, Long> {
 
     List<Parent> findAll();
 
+    @Override
+    Parent save(Parent parent);
 
 
 

@@ -3,7 +3,11 @@ package pl.coderslab.studentsproject.model;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.JoinColumn;
 import lombok.ToString;
+
+
 
 @Entity
 @Table(name = "students")
@@ -12,9 +16,9 @@ import lombok.ToString;
 public class Student {
 
    @Id
-   @GeneratedValue(strategy= GenerationType.IDENTITY)   // TODO dodać relację many to many z parents
+   @GeneratedValue(strategy= GenerationType.IDENTITY)
    @Column (name="student_id")
-   private long id;
+   private Long id;
 
    @Column (name="first_name")
    private String firstName;
@@ -37,6 +41,9 @@ public class Student {
    @Column (name="parent_id")
    private Integer parentId;
 
+//   @ManyToOne
+//   @JoinColumn(name = "classId")
+//   private Class class;
 
    @Column(name="class_id")
    private Integer classId;
