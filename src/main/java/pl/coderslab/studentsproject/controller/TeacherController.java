@@ -3,10 +3,7 @@ package pl.coderslab.studentsproject.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import pl.coderslab.studentsproject.model.Teacher;
 import pl.coderslab.studentsproject.model.Subject;
 import pl.coderslab.studentsproject.service.SubjectService;
@@ -60,5 +57,13 @@ public class TeacherController {
 
         return "redirect:/teacher/details/{id}";
     }
+
+    @GetMapping("/teacher/delete/{id}")
+    public String deleteTeacher(@PathVariable("id") long id) {
+        teacherService.deleteTeacher(id);
+        return "redirect:/list/teachers";
+    }
+
+
 
 }

@@ -80,7 +80,11 @@
     </tr>
 </table>
 
-    <button class="btn btn-info col-2" onclick="window.location.href='/notyet'">Edytuj przedmioty nauczyciela</button>
+    <a th:href="@{/notyet}" class="btn btn-primary">Edutyj przedmioty</a>
+    <a th:href="@{/teacher/delete/{id}(id=${teacher.id})}" class="btn btn-primary">Usuń nauczyciuela</a>
+
+
+
 </div>
 </body>
 </html>

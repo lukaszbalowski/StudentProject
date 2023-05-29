@@ -14,4 +14,6 @@ public interface TeacherService {
     Teacher saveTeacher(Teacher teacher);
 
     List<Subject> getAllSubjects();
+
+    void deleteTeacher(long id);
 }
