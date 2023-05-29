@@ -66,7 +66,8 @@
 
       <td>
       <a th:href="@{/teacher/details/{id}(id=${teacher.id})}" class="btn btn-primary">Pokaż</a>
-      <a th:href="@{notyet}" class="btn btn-primary">Edytuj</a></td>
+        <a th:href="@{/teacher/edit/{id}(id=${teacher.id})}" class="btn btn-primary">Edytuj</a>
+      </td>
 
     </tr>
 
