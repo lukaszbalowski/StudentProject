@@ -8,4 +8,5 @@ public interface TeacherService {
 
     List<Teacher> getAllTeachers();
 
+    Teacher getTeacherById(long id);
 }

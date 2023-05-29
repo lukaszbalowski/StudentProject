@@ -21,4 +21,10 @@ public class TeacherServiceImplement implements TeacherService {
     public List<Teacher> getAllTeachers() {
         return teacherRepository.findAll();
     }
+
+    @Override
+    public Teacher getTeacherById(long id) {
+        return teacherRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid teacher ID: " + id));
+    }
 }
