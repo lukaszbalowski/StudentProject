@@ -9,4 +9,5 @@ public interface SubjectService {
     List<Subject> getAllSubjects();
 
 
+    List<Subject> getSubjectsByIds(List<Long> subjectIds);
 }

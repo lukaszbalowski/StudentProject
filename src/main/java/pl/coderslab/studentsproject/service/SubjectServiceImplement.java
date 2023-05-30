@@ -14,6 +14,7 @@ public class SubjectServiceImplement implements SubjectService  {
 
     @Autowired
     public SubjectServiceImplement(SubjectRepository subjectRepository) {
+
         this.subjectRepository = subjectRepository;
     }
 
@@ -23,5 +24,10 @@ public class SubjectServiceImplement implements SubjectService  {
         return subjectRepository.findAll();
 
 
+    }
+
+    @Override
+    public List<Subject> getSubjectsByIds(List<Long> subjectIds) {
+        return subjectRepository.findAllById(subjectIds);
     }
 }

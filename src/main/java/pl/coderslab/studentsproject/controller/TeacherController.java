@@ -40,19 +40,22 @@ public class TeacherController {
     @GetMapping ("/teacher/edit/{id}")
     public String showTeacherEditForm(@PathVariable("id") long id, Model model) {
         Teacher teacher = teacherService.getTeacherById(id);
-        List<Subject> subjects = subjectService.getAllSubjects();
+        List<Subject> allSubjects = subjectService.getAllSubjects();
         model.addAttribute("teacher", teacher);
-//        model.addAttribute("subjects", subjects);
+        model.addAttribute("allSubjects", allSubjects);
         return "teacheredit";
     }
 
     @PostMapping ("/teacher/edit/{id}")
-    public String saveTeacherEditForm(@PathVariable("id") long id, @ModelAttribute ("teacher") Teacher teacher) {
+    public String saveTeacherEditForm(@PathVariable("id") long id, @ModelAttribute("teacher") Teacher teacher,
+                                      @RequestParam("subjectIds") List<Long> subjectIds) {
         Teacher existingTeacher = teacherService.getTeacherById(id);
         existingTeacher.setFirstName(teacher.getFirstName());
         existingTeacher.setLastName(teacher.getLastName());
         existingTeacher.setEmail(teacher.getEmail());
         existingTeacher.setPhone(teacher.getPhone());
+        List<Subject> selectedSubjects = subjectService.getSubjectsByIds(subjectIds);
+        existingTeacher.setSubjects(selectedSubjects);
         teacherService.saveTeacher(existingTeacher);
 
         return "redirect:/teacher/details/{id}";

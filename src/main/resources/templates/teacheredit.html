@@ -45,46 +45,71 @@
 
         </tr>
     </table>
-</div>
 
-<div class="container">
-    <h1>Student Management System</h1>
-    <hr>
-    <h2>Edytuj Nauczyciela</h2>
-<form th:action="@{/teacher/edit/{id}(id=${teacher.id})}" method="post">
-    <input type="hidden" name="_method" value="put">
-    <label>First Name: <input type="text" th:field="*{teacher.firstName}"></label><br>
-    <label>Last Name: <input type="text" th:field="*{teacher.lastName}"></label><br>
-    <label>Email: <input type="email" th:field="*{teacher.email}"></label><br>
-    <label>Phone: <input type="text" th:field="*{teacher.phone}"></label><br>
+    <div class="container">
+        <h1>Student Management System</h1>
+        <hr>
+        <h2>Edytuj Nauczyciela</h2>
+        <form th:action="@{/teacher/edit/{id}(id=${teacher.id})}" method="post">
+            <input type="hidden" name="_method" value="put">
+            <label>First Name: <input type="text" th:field="*{teacher.firstName}"></label><br>
+            <label>Last Name: <input type="text" th:field="*{teacher.lastName}"></label><br>
+            <label>Email: <input type="email" th:field="*{teacher.email}"></label><br>
+            <label>Phone: <input type="text" th:field="*{teacher.phone}"></label><br>
+
+            <label>Subjects:</label><br>
+            <div th:each="subject : ${allSubjects}">
+                <label th:for="${'subject-' + subject.id}">
+                    <input type="checkbox" th:id="${'subject-' + subject.id}" th:name="subjectIds"
+                           th:value="${subject.id}" th:checked="${teacher.subjects.contains(subject)}">
+                    <span th:text="${subject.subjectName}"></span>
+                </label><br>
+            </div>
+
+            <input type="submit" class="btn btn-info col-2" value="Zapisz">
+        </form>
+
+    </div>
+<!--</div>-->
+
+<!--<div class="container">-->
+<!--    <h1>Student Management System</h1>-->
+<!--    <hr>-->
+<!--    <h2>Edytuj Nauczyciela</h2>-->
+<!--<form th:action="@{/teacher/edit/{id}(id=${teacher.id})}" method="post">-->
+<!--    <input type="hidden" name="_method" value="put">-->
+<!--    <label>First Name: <input type="text" th:field="*{teacher.firstName}"></label><br>-->
+<!--    <label>Last Name: <input type="text" th:field="*{teacher.lastName}"></label><br>-->
+<!--    <label>Email: <input type="email" th:field="*{teacher.email}"></label><br>-->
+<!--    <label>Phone: <input type="text" th:field="*{teacher.phone}"></label><br>-->
 
 
 
-    <input type="submit" class="btn btn-info col-2" value="Zapisz">
-</form>
+<!--    <input type="submit" class="btn btn-info col-2" value="Zapisz">-->
+<!--</form>-->
 
-    <br>
-    <br>
+<!--    <br>-->
+<!--    <br>-->
 
-<table>
-    <h2>Przypisane przedmioty:</h2>
-    <tr>
-        <th>Subject ID</th>
-        <th>Subject Name</th>
-        <th>Subject Description</th>
-    </tr>
-    <tr th:each="subject : ${teacher.subjects}">
-        <td th:text="${subject.id}"></td>
-        <td th:text="${subject.subjectName}"></td>
-        <td th:text="${subject.subjectDescription}"></td>
-    </tr>
-</table>
+<!--<table>-->
+<!--    <h2>Przypisane przedmioty:</h2>-->
+<!--    <tr>-->
+<!--        <th>Subject ID</th>-->
+<!--        <th>Subject Name</th>-->
+<!--        <th>Subject Description</th>-->
+<!--    </tr>-->
+<!--    <tr th:each="subject : ${teacher.subjects}">-->
+<!--        <td th:text="${subject.id}"></td>-->
+<!--        <td th:text="${subject.subjectName}"></td>-->
+<!--        <td th:text="${subject.subjectDescription}"></td>-->
+<!--    </tr>-->
+<!--</table>-->
 
-    <a th:href="@{/notyet}" class="btn btn-primary">Edutyj przedmioty</a>
+<!--    <a th:href="@{/notyet}" class="btn btn-primary">Edutyj przedmioty</a>-->
     <a th:href="@{/teacher/delete/{id}(id=${teacher.id})}" class="btn btn-primary">Usuń nauczyciuela</a>
 
 
 
-</div>
+<!--</div>-->
 </body>
 </html>
