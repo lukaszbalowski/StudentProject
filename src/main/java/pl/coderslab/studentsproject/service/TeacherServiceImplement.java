@@ -36,6 +36,7 @@ public class TeacherServiceImplement implements TeacherService {
 
     @Override
     public Teacher saveTeacher(Teacher teacher) {
+
         return teacherRepository.save(teacher);
     }
 
@@ -49,15 +50,15 @@ public class TeacherServiceImplement implements TeacherService {
         Teacher teacher = teacherRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid teacher ID: " + id));
 
-        List<Class> classes = teacher.getClasses();
-        for (Class group : classes) {
-            group.getTeachers().remove(teacher);
-        }
-
-        List<Subject> subjects = teacher.getSubjects();
-        for (Subject subject : subjects) {
-            subject.getTeachers().remove(teacher);
-        }
+//        List<Class> classes = teacher.getClasses();
+//        for (Class group : classes) {
+//            group.getTeachers().remove(teacher);
+//        }
+//
+//        List<Subject> subjects = teacher.getSubjects();
+//        for (Subject subject : subjects) {
+//            subject.getTeachers().remove(teacher);
+//        }
 
         teacherRepository.delete(teacher);
 

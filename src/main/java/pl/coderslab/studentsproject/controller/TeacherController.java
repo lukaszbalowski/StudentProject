@@ -64,6 +64,20 @@ public class TeacherController {
         return "redirect:/list/teachers";
     }
 
+    @GetMapping ("/teacher/add")
+    public String showAddTeacherForm(Model model) {
+        model.addAttribute("teacher", new Teacher());
+        return "addteacher";
+
+    }
+
+    @PostMapping ("/teacher/save")
+        public String saveTeacher(Teacher teacher) {
+        teacherService.saveTeacher(teacher);
+        return "redirect:/list/teachers";
+        }
+
+
 
 
 }
