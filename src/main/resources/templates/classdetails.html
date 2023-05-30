@@ -75,6 +75,27 @@
         </tbody>
     </table>
 
+    <h3>Nauczyciele przypisani do klasy:</h3>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Imię i nazwisko</th>
+
+                    </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="teacher : ${classDetails.teachers}">
+            <tr>
+                <td>
+                    <span th:text="${teacher.firstName}"></span>
+                    <span th:text="${teacher.lastName}"></span>
+                </td>
+
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+
     <a href="/list/students" class="btn btn-primary">Powrót</a>
 
 </div>

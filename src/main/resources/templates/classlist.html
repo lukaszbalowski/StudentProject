@@ -55,7 +55,7 @@
     <tr>
       <th>Nazwa klasy</th>
       <th>Opis klasy</th>
-      <th>Liczba uczniów</th>
+
       <th>Akcje</th>
     </tr>
     </thead>
@@ -63,7 +63,7 @@
     <tr th:each="class : ${classes}">
       <td th:text="${class.className}"></td>
       <td th:text="${class.description}"></td>
-      <td>Liczba Studentów</td>
+
       <td>
         <a th:href="@{'/classdetails/' + ${class.id}}" class="btn btn-primary">Pokaż</a>,
         <a th:href="@{'/classedit/' + ${class.id}}" class="btn btn-primary">Edytuj</a>
