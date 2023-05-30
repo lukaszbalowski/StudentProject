@@ -31,7 +31,7 @@ public class Teacher {
         @ManyToMany(mappedBy = "teachers")
         private List<Class> classes;
 
-        @ManyToMany(cascade = CascadeType.ALL)
+        @ManyToMany(cascade = CascadeType.DETACH)
         @JoinTable(
                 name = "teacher_subject",
                 joinColumns = @JoinColumn(name = "teacher_id"),
