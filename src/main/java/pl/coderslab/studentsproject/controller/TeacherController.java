@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import pl.coderslab.studentsproject.model.Class;
 import pl.coderslab.studentsproject.model.Student;
 import pl.coderslab.studentsproject.model.Teacher;
 import pl.coderslab.studentsproject.model.Subject;
@@ -34,6 +35,8 @@ public class TeacherController {
         List<Subject> subjects = teacher.getSubjects();
         model.addAttribute("teacher", teacher);
         model.addAttribute("subjects", subjects);
+        List<Class> classes = teacherService.getCLassesByTeacherId(id);
+        model.addAttribute("classes", classes);
         return "teacherdetails";
 
     }

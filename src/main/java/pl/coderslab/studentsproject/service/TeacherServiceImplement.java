@@ -46,6 +46,19 @@ public class TeacherServiceImplement implements TeacherService {
     }
 
     @Override
+    public List<Class> getCLassesByTeacherId(long teacherId) {
+        Teacher teacher = getTeacherById(teacherId);
+        return teacher.getClasses();
+    }
+
+
+//    @Override
+//    public List<Class> getClassesByTeacherId(long teacherId) {
+//        Teacher teacher = getTeacherById(teacherId);
+//        return teacher.getClasses();
+//    }
+
+    @Override
     public void deleteTeacher(long id) {
         Teacher teacher = teacherRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid teacher ID: " + id));

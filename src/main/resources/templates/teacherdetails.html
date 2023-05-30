@@ -76,6 +76,23 @@
         </tr>
         </tbody>
     </table>
+
+    <h2>Klasy, do których przypisany jest nauczyciel:</h2>
+    <table border="1" class="table table-striped table-responsive-md">
+        <thead>
+        <tr>
+            <th>Nazwa</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="class : ${classes}">
+            <td th:text="${class.className}"></td>
+
+        </tr>
+        </tbody>
+    </table>
+
 </div>
 
 </body>
