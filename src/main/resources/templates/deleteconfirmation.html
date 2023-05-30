@@ -14,7 +14,7 @@
   <h3>Student: <span th:text="${student.firstName + ' ' + student.lastName}"></span></h3>
 
   <a th:href="@{/student/delete/{id}(id=${student.id})}" class="btn btn-danger">Usuń</a>
-  <a th:href="@{/edit/student/{id}(id=${student.id})}" class="btn btn-primary">Powrót</a>
+  <a th:href="@{/student/edit/{id}(id=${student.id})}" class="btn btn-primary">Powrót</a>
 </div>
 </body>
 

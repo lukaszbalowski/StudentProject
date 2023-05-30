@@ -10,4 +10,7 @@ public interface SubjectService {
 
 
     List<Subject> getSubjectsByIds(List<Long> subjectIds);
+
+
+    Subject getSubjectById(long id);
 }

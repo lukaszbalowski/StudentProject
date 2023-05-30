@@ -66,8 +66,9 @@
                 </label><br>
             </div>
 
-            <input type="submit" class="btn btn-info col-2" value="Zapisz">
+            <input type="submit" class="btn btn-info btn-sm mb-3" value="Zapisz">
         </form>
+        <a href="/list/teachers" class="btn btn-info btn-sm mb-3">Powrót</a>
 
     </div>
 <!--</div>-->
@@ -106,7 +107,7 @@
 <!--</table>-->
 
 <!--    <a th:href="@{/notyet}" class="btn btn-primary">Edutyj przedmioty</a>-->
-    <a th:href="@{/teacher/delete/{id}(id=${teacher.id})}" class="btn btn-primary">Usuń nauczyciuela</a>
+    <a th:href="@{/teacher/delete-confirmation/{id}(id=${teacher.id})}" class="btn btn-primary">Usuń nauczyciuela</a>
 
 
 

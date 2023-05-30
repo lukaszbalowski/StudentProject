@@ -30,4 +30,10 @@ public class SubjectServiceImplement implements SubjectService  {
     public List<Subject> getSubjectsByIds(List<Long> subjectIds) {
         return subjectRepository.findAllById(subjectIds);
     }
+
+    @Override
+    public Subject getSubjectById(long id) {
+        return subjectRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid subject Id:" + id));
+
+    }
 }

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import pl.coderslab.studentsproject.model.Student;
 import pl.coderslab.studentsproject.model.Teacher;
 import pl.coderslab.studentsproject.model.Subject;
 import pl.coderslab.studentsproject.service.SubjectService;
@@ -27,7 +28,7 @@ public class TeacherController {
         return "teacherslist";
     }
 
-    @GetMapping ("/teacher/details/{id}")
+    @GetMapping("/teacher/details/{id}")
     public String showTeacherDetails(@PathVariable("id") long id, Model model) {
         Teacher teacher = teacherService.getTeacherById(id);
         List<Subject> subjects = teacher.getSubjects();
@@ -37,7 +38,7 @@ public class TeacherController {
 
     }
 
-    @GetMapping ("/teacher/edit/{id}")
+    @GetMapping("/teacher/edit/{id}")
     public String showTeacherEditForm(@PathVariable("id") long id, Model model) {
         Teacher teacher = teacherService.getTeacherById(id);
         List<Subject> allSubjects = subjectService.getAllSubjects();
@@ -46,7 +47,7 @@ public class TeacherController {
         return "teacheredit";
     }
 
-    @PostMapping ("/teacher/edit/{id}")
+    @PostMapping("/teacher/edit/{id}")
     public String saveTeacherEditForm(@PathVariable("id") long id, @ModelAttribute("teacher") Teacher teacher,
                                       @RequestParam("subjectIds") List<Long> subjectIds) {
         Teacher existingTeacher = teacherService.getTeacherById(id);
@@ -67,20 +68,26 @@ public class TeacherController {
         return "redirect:/list/teachers";
     }
 
-    @GetMapping ("/teacher/add")
+    @GetMapping("/teacher/add")
     public String showAddTeacherForm(Model model) {
         model.addAttribute("teacher", new Teacher());
         return "addteacher";
 
     }
 
-    @PostMapping ("/teacher/save")
-        public String saveTeacher(Teacher teacher) {
+    @PostMapping("/teacher/save")
+    public String saveTeacher(Teacher teacher) {
         teacherService.saveTeacher(teacher);
         return "redirect:/list/teachers";
-        }
+    }
 
 
+    @GetMapping("/teacher/delete-confirmation/{id}")
+    public String showDeleteConfirmation(@PathVariable(value = "id") long id, Model model) {
+        Teacher teacher = teacherService.getTeacherById(id);
+        model.addAttribute("teacher", teacher);
+        return "TeacherDeleteConfirmation";
 
 
+    }
 }
