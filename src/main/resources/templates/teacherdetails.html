@@ -8,7 +8,7 @@
           crossorigin="anonymous">
     <style>
         .table-container {
-            width: 50%;
+            width: 30%;
             margin: 0 auto;
             text-align: center;
         }
@@ -24,18 +24,22 @@
             <td>
                 <a th:href="@{/list/students}" class="btn btn-primary btn-sm mb-3">Uczniowie</a>
             </td>
+            <!--            <td>-->
+            <!--                <a th:href="@{/addparentform}" class="btn btn-primary btn-sm mb-3">dodaj studenta</a>-->
+            <!--            </td>-->
             <td>
-                <a th:href="@{/list/parents}" class="btn btn-primary btn-sm mb-3">Rodzice</a>
+                <a href="/list/parents" class="btn btn-primary btn-sm mb-3">Rodzice</a>
             </td>
             <td>
-                <a th:href="@{/list/classes}" class="btn btn-primary btn-sm mb-3">Klasy</a>
+                <a href="/list/classes" class="btn btn-primary btn-sm mb-3">Klasy</a>
             </td>
             <td>
-                <a th:href="@{/list/teachers}" class="btn btn-primary btn-sm mb-3">Nauczyciele</a>
+                <a href="/list/teachers" class="btn btn-info btn-sm mb-3">Nauczyciele</a>
             </td>
             <td>
-                <a th:href="@{/list/subjects}" class="btn btn-primary btn-sm mb-3">Przedmioty</a>
+                <a href="/list/subjects" class="btn btn-primary btn-sm mb-3">Przedmioty</a>
             </td>
+
         </tr>
     </table>
 </div>
@@ -92,6 +96,9 @@
         </tr>
         </tbody>
     </table>
+
+
+    <a th:href="@{/teacher/edit/{id}(id=${teacher.id})}" class="btn btn-primary">Edytuj</a>
 
 </div>
 

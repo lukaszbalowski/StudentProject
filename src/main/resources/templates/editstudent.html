@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <style>
         .table-container {
-            width: 40%;
+            width: 30%;
             margin: 0 auto;
             text-align: center;
         }
@@ -25,17 +25,22 @@
                 <a th:href="@{/}" class="btn btn-primary btn-sm mb-3">Strona główna</a>
             </td>
             <td>
-                <a th:href="@{/list/students}" class="btn btn-primary btn-sm mb-3">lista studentów</a>
+                <a th:href="@{/list/students}" class="btn btn-info btn-sm mb-3">Uczniowie</a>
+            </td>
+
+            <td>
+                <a href="/list/parents" class="btn btn-primary btn-sm mb-3">Rodzice</a>
             </td>
             <td>
-                <a th:href="@{/addparentform}" class="btn btn-primary btn-sm mb-3">dodaj studenta</a>
+                <a href="/list/classes" class="btn btn-primary btn-sm mb-3">Klasy</a>
             </td>
             <td>
-                <a href="/list/parents" class="btn btn-primary btn-sm mb-3">lista rodziców</a>
+                <a href="/list/teachers" class="btn btn-primary btn-sm mb-3">Nauczyciele</a>
             </td>
             <td>
-                <a href="/list/classes" class="btn btn-primary btn-sm mb-3">lista klas</a>
+                <a href="/list/subjects" class="btn btn-primary btn-sm mb-3">Przedmioty</a>
             </td>
+
         </tr>
     </table>
 </div>
@@ -46,7 +51,6 @@
     <h2>Edytuj Studenta</h2>
 
     <form action="#" th:action="@{/saveStudent}" th:object="${student}" method="POST">
-
 
         <input type="hidden" th:field="*{id}" />
 

@@ -18,7 +18,6 @@
 
 </head>
 <body>
-
 <div class="table-container">
   <table class="table">
     <tr>
@@ -26,20 +25,27 @@
         <a th:href="@{/}" class="btn btn-primary btn-sm mb-3">Strona główna</a>
       </td>
       <td>
-        <a th:href="@{/list/students}" class="btn btn-primary btn-sm mb-3">lista studentów</a>
+        <a th:href="@{/list/students}" class="btn btn-primary btn-sm mb-3">Uczniowie</a>
       </td>
-      <!--      <td>-->
-      <!--        <a th:href="@{/addparentform}" class="btn btn-primary btn-sm mb-3">dodaj studenta</a>-->
-      <!--      </td>-->
+
       <td>
-        <a href="/list/parents" class="btn btn-primary btn-sm mb-3">lista rodziców</a>
+        <a href="/list/parents" class="btn btn-primary btn-sm mb-3">Rodzice</a>
       </td>
       <td>
-        <a href="/list/classes" class="btn btn-info btn-sm mb-3">lista klas</a>
+        <a href="/list/classes" class="btn btn-info btn-sm mb-3">Klasy</a>
       </td>
+      <td>
+        <a href="/list/teachers" class="btn btn-primary btn-sm mb-3">Nauczyciele</a>
+      </td>
+      <td>
+        <a href="/list/subjects" class="btn btn-primary btn-sm mb-3">Przedmioty</a>
+      </td>
+
     </tr>
   </table>
 </div>
+
+
 <div class="container my-2">
   <h1>Edytuj klasę</h1>
   <form action="/saveclass" method="POST">

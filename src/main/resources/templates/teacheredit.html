@@ -27,9 +27,7 @@
             <td>
                 <a th:href="@{/list/students}" class="btn btn-primary btn-sm mb-3">Uczniowie</a>
             </td>
-            <!--            <td>-->
-            <!--                <a th:href="@{/addparentform}" class="btn btn-primary btn-sm mb-3">dodaj studenta</a>-->
-            <!--            </td>-->
+
             <td>
                 <a href="/list/parents" class="btn btn-primary btn-sm mb-3">Rodzice</a>
             </td>
@@ -37,14 +35,15 @@
                 <a href="/list/classes" class="btn btn-primary btn-sm mb-3">Klasy</a>
             </td>
             <td>
-                <a href="/list/teachers" class="btn btn-primary btn-sm mb-3">Nauczyciele</a>
+                <a href="/list/teachers" class="btn btn-info btn-sm mb-3">Nauczyciele</a>
             </td>
             <td>
-                <a href="/list/subjects" class="btn btn-info btn-sm mb-3">Przedmioty</a>
+                <a href="/list/subjects" class="btn btn-primary btn-sm mb-3">Przedmioty</a>
             </td>
 
         </tr>
     </table>
+</div>
 
     <div class="container">
         <h1>Student Management System</h1>
@@ -52,12 +51,13 @@
         <h2>Edytuj Nauczyciela</h2>
         <form th:action="@{/teacher/edit/{id}(id=${teacher.id})}" method="post">
             <input type="hidden" name="_method" value="put">
-            <label>First Name: <input type="text" th:field="*{teacher.firstName}"></label><br>
-            <label>Last Name: <input type="text" th:field="*{teacher.lastName}"></label><br>
-            <label>Email: <input type="email" th:field="*{teacher.email}"></label><br>
-            <label>Phone: <input type="text" th:field="*{teacher.phone}"></label><br>
 
-            <label>Subjects:</label><br>
+            <input type="text" th:field="*{teacher.firstName}" placeholder="Imię" class="form-control mb-4 col-4" required pattern="[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ\s-]+">
+            <input type="text" th:field="*{teacher.lastName}" placeholder="Nazwisko" class="form-control mb-4 col-4" required pattern="[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ\s-]+">
+            <input type="email" th:field="*{teacher.email}" placeholder="email" class="form-control mb-4 col-4" required>
+            <input type="text" th:field="*{teacher.phone}" placeholder="Telefon" class="form-control mb-4 col-4" pattern="[0-9]+" required>
+
+            <label>Przedmioty wykładane:</label><br>
             <div th:each="subject : ${allSubjects}">
                 <label th:for="${'subject-' + subject.id}">
                     <input type="checkbox" th:id="${'subject-' + subject.id}" th:name="subjectIds"
@@ -66,51 +66,12 @@
                 </label><br>
             </div>
 
-            <input type="submit" class="btn btn-info btn-sm mb-3" value="Zapisz">
+            <input type="submit" class="btn btn-primary" value="Zapisz"> <a href="/list/teachers" class="btn btn-primary">Wróć</a>
+
         </form>
-        <a href="/list/teachers" class="btn btn-info btn-sm mb-3">Powrót</a>
+        <br><br>
+        <a th:href="@{/teacher/delete-confirmation/{id}(id=${teacher.id})}" class="btn btn-danger">Usuń nauczyciuela</a>
 
     </div>
-<!--</div>-->
-
-<!--<div class="container">-->
-<!--    <h1>Student Management System</h1>-->
-<!--    <hr>-->
-<!--    <h2>Edytuj Nauczyciela</h2>-->
-<!--<form th:action="@{/teacher/edit/{id}(id=${teacher.id})}" method="post">-->
-<!--    <input type="hidden" name="_method" value="put">-->
-<!--    <label>First Name: <input type="text" th:field="*{teacher.firstName}"></label><br>-->
-<!--    <label>Last Name: <input type="text" th:field="*{teacher.lastName}"></label><br>-->
-<!--    <label>Email: <input type="email" th:field="*{teacher.email}"></label><br>-->
-<!--    <label>Phone: <input type="text" th:field="*{teacher.phone}"></label><br>-->
-
-
-
-<!--    <input type="submit" class="btn btn-info col-2" value="Zapisz">-->
-<!--</form>-->
-
-<!--    <br>-->
-<!--    <br>-->
-
-<!--<table>-->
-<!--    <h2>Przypisane przedmioty:</h2>-->
-<!--    <tr>-->
-<!--        <th>Subject ID</th>-->
-<!--        <th>Subject Name</th>-->
-<!--        <th>Subject Description</th>-->
-<!--    </tr>-->
-<!--    <tr th:each="subject : ${teacher.subjects}">-->
-<!--        <td th:text="${subject.id}"></td>-->
-<!--        <td th:text="${subject.subjectName}"></td>-->
-<!--        <td th:text="${subject.subjectDescription}"></td>-->
-<!--    </tr>-->
-<!--</table>-->
-
-<!--    <a th:href="@{/notyet}" class="btn btn-primary">Edutyj przedmioty</a>-->
-    <a th:href="@{/teacher/delete-confirmation/{id}(id=${teacher.id})}" class="btn btn-primary">Usuń nauczyciuela</a>
-
-
-
-<!--</div>-->
 </body>
 </html>
