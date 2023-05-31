@@ -25,23 +25,12 @@
 
         <input type="email" th:field="*{email}" placeholder="email" class="form-control mb-4 col-4" required>
 
-        <input type="number" th:field="*{phone}" placeholder="Telefon" class="form-control mb-4 col-4" pattern="[0-9]+" required>
+        <input type="text" th:field="*{phone}" placeholder="Telefon" class="form-control mb-4 col-4" pattern="[0-9]+" required>
 
-<!--        <input type="text" th:field="*{birthDate}" placeholder="Data urodzenia" class="form-control mb-4 col-4" pattern="^((19|20)\d{2})-(0[1-9]|1[0-2])-(0[1-9]|1\d|2\d|3[01])$" required>-->
-
-<!--        <input type="text" th:field="*{studyStartDate}" placeholder="Data rozpoczęcia nauki" class="form-control mb-4 col-4" pattern="^(?:\d{4}-\d{2}-\d{2}|(?!0{4})\d{1,4}(?:(?:(?:-0?-0?)|(?:-(?:1[0-2]|0?[1-9])-(?:0?[1-9]|1\d|2[0-8])))|(?:-0?[13-9]|1[0-2])-31))(?:T(?:(?:[01]\d|2[0-3]):[0-5]\d(?::[0-5]\d)?)(?:Z|(?:[-+]\d{2}(?::?\d{2})?)))?$" required>-->
 
         <input type="text" th:field="*{birthDate}" placeholder="Data urodzenia" class="form-control mb-4 col-4 datepicker">
         <input type="text" th:field="*{studyStartDate}" placeholder="Data rozpoczęcia nauki" class="form-control mb-4 col-4 datepicker">
 
-
-<!--        <input type="text" th:field="*{firstName}" placeholder="Imie" class="form-control mb-4 col-4">-->
-<!--        <input type="text" th:field="*{lastName}" placeholder="Nazwisko" class="form-control mb-4 col-4">-->
-<!--        <input type="text" th:field="*{email}" placeholder="email" class="form-control mb-4 col-4">-->
-<!--        <input type="text" th:field="*{phone}" placeholder="Telefon" class="form-control mb-4 col-4">-->
-<!--        <input type="text" th:field="*{birthDate}" placeholder="Data urodzenia" class="form-control mb-4 col-4">-->
-<!--        <input type="text" th:field="*{studyStartDate}" placeholder="Data rozpoczęcia nauki" class="form-control mb-4 col-4">-->
-<!--        <input type="text"  th:field="*{parentId}"  class="form-control mb-4 col-4">-->
 
         <select class="form-control mb-4 col-4" th:field="*{parentId}" id="parentId">
             <option value="" selected>Wybierz Rodzica</option>

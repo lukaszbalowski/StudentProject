@@ -1,6 +1,7 @@
 package pl.coderslab.studentsproject.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -31,8 +32,10 @@ public class ParentController {
 
     @GetMapping("/list/parents")
     public String getParentsList(Model model) {
-        model.addAttribute("parents", parentService.getAllParents());
-        return "parentslist";
+
+//        model.addAttribute("parents", parentService.getAllParents());
+//                return "parentslist";
+        return findPaginated(1, "firstName", "asc", model);
     }
 
     @PostMapping("/addparent")
@@ -40,16 +43,13 @@ public class ParentController {
                             @RequestParam("lastName") String lastName,
                             @RequestParam("email") String email,
                             @RequestParam("phone") String phone) {
-        // Tworzenie nowego rodzica
+
         Parent parent = new Parent(firstName, lastName, email, phone);
 
-        // Zapis rodzica w bazie danych
         parentRepository.save(parent);
 
-        // Pobranie numeru Id nowo dodanego rodzica
         Long parentId = parent.getId();
 
-        // Przekierowanie do widoku "addstudent.html" z przekazaniem numeru Id rodzica
         return "redirect:/addstudent";
     }
 
@@ -81,6 +81,28 @@ public class ParentController {
         parentService.updateParent(parent);
         return "redirect:/parent/details/{parentId}";
 
+    }
+
+    @GetMapping ("/list/parents/page/{pageNo}")
+    public String findPaginated(@PathVariable (value = "pageNo") int pageNo,
+                                @RequestParam("sortField") String sortField,
+                                @RequestParam("sortDir") String sortDir,
+                                Model model) {
+        int pageSize = 10;
+
+
+        Page<Parent> page = parentService.findPaginated(pageNo, pageSize, sortField, sortDir);
+        List<Parent> parents = page.getContent();
+
+        model.addAttribute("currentPage", pageNo);
+        model.addAttribute("totalPages", page.getTotalPages());
+        model.addAttribute("totalItems", page.getTotalElements());
+        model.addAttribute("sortField", sortField);
+        model.addAttribute("sortDir", sortDir);
+        model.addAttribute("reverseSortDir", sortDir.equals("asc") ? "desc" : "asc");
+        model.addAttribute("parentsList", parents);
+
+        return "parentslist";
     }
 
 

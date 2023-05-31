@@ -16,5 +16,7 @@ public interface ParentService {
 
 
     void updateParent(Parent parent);
+
+    Page<Parent> findPaginated(int pageNo, int pageSize, String sortField, String sortDirection);
 }
 
