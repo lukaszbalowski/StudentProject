@@ -14,9 +14,6 @@
     <hr>
     <h2>Add new Student</h2>
 
-
-
-
     <form action="#" th:action="@{/saveStudent}" th:object="${student}" method="POST">
 
         <input type="text" th:field="*{firstName}" placeholder="Imie" class="form-control mb-4 col-4" required pattern="[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ\s-]+">
