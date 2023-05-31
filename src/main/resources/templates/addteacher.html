@@ -15,19 +15,19 @@
   <form method="post" th:action="@{/teacher/save}">
     <div class="form-group">
       <label for="firstName">Imię:</label>
-      <input type="text" class="form-control" id="firstName" name="firstName" required>
+      <input type="text" class="form-control" id="firstName" name="firstName" required pattern="[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ\s-]+" >
     </div>
     <div class="form-group">
       <label for="lastName">Nazwisko:</label>
-      <input type="text" class="form-control" id="lastName" name="lastName" required>
+      <input type="text" class="form-control" id="lastName" name="lastName" required pattern="[A-Za-zżźćńółęąśŻŹĆĄŚĘŁÓŃ\s-]+">
     </div>
     <div class="form-group">
       <label for="email">Email:</label>
       <input type="email" class="form-control" id="email" name="email" required>
     </div>
     <div class="form-group">
-      <label for="phone">Email:</label>
-      <input type="phone" class="form-control" id="phone" name="phone" required>
+      <label for="phone">Telefon:</label>
+      <input type="phone" class="form-control" id="phone" name="phone" required pattern="[0-9]+">
     </div>
 
     <button type="submit" class="btn btn-primary">Dodaj</button>

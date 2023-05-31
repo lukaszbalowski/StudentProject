@@ -70,13 +70,13 @@ public class StudentController {
 
     }
 
-    @GetMapping("/student/add")
-    public String addStudentForm(Model model) {
-        Student student  = new Student();
-        model.addAttribute("student", student);
-        return "addstudent";
-
-    }
+//    @GetMapping("/student/add")
+//    public String addStudentForm(Model model) {
+//        Student student  = new Student();
+//        model.addAttribute("student", student);
+//        return "addstudent";
+//
+//    }
 
 
 //    @PostMapping("/saveStudent")
@@ -85,10 +85,10 @@ public class StudentController {
 //        return "redirect:/list/students";
 //    }
 
-
+//
     @PostMapping("/saveStudent")
     public String saveStudent(@ModelAttribute("student") Student student) {
-        // save employee to database
+
         studentService.saveStudent(student);
         return "redirect:/";
     }

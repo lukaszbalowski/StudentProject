@@ -119,13 +119,13 @@
             </span>
         </div>
         <div class="col-sm-1">
-            <a th:if="${currentPage < totalPages}" th:href="@{'/list/students/page/' + ${currentPage + 1}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir} }">Next</a>
-            <span th:unless="${currentPage < totalPages}">Next</span>
+            <a th:if="${currentPage < totalPages}" th:href="@{'/list/students/page/' + ${currentPage + 1}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir} }"> >>> </a>
+            <span th:unless="${currentPage < totalPages}"> >>> </span>
         </div>
 
         <div class="col-sm-1">
-            <a th:if="${currentPage < totalPages}" th:href="@{'/list/students/page/' + ${totalPages} + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Last</a>
-            <span th:unless="${currentPage < totalPages}">Last</span>
+            <a th:if="${currentPage < totalPages}" th:href="@{'/list/students/page/' + ${totalPages} + '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}"> >| </a>
+            <span th:unless="${currentPage < totalPages}">  >|  </span>
         </div>
     </div>
 </div>
