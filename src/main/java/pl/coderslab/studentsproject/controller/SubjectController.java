@@ -20,14 +20,14 @@ public class SubjectController {
     public String getSubjectList(Model model) {
         List<Subject> subjectList = subjectService.getAllSubjects();
         model.addAttribute("subjectlist", subjectList);
-        return "subjectlist";
+        return "subjects/subjectlist";
     }
 
     @GetMapping("/subject/details/{id}")
     public String showSubjectDetails(@PathVariable("id") long id, Model model) {
         Subject subject = subjectService.getSubjectById(id);
         model.addAttribute("subject", subject);
-        return "subjectdetails";
+        return "subjects/subjectdetails";
     }
 
 }

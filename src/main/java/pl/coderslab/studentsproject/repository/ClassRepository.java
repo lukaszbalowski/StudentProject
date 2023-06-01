@@ -14,6 +14,5 @@ public interface ClassRepository extends JpaRepository<Class, Long> {
 
     Optional<Class> findByClassName(String className);
 
-    Class save(Class classObj);
 
 }

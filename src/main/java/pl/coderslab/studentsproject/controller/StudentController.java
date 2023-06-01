@@ -41,7 +41,7 @@ public class StudentController {
     public String searchStudents(@RequestParam("lastName") String lastName, Model model) {
         List<Student> foundStudents = studentService.searchStudentsByLastName(lastName);
         model.addAttribute("studentList", foundStudents); // tutaj zmieniłem z "students" na "studentList"
-        return "studentslist";
+        return "students/studentslist";
     }
 
 
@@ -54,7 +54,7 @@ public class StudentController {
 
         List<Student> filteredStudents = studentService.filterStudentsByClassId(classId);
         model.addAttribute("studentList", filteredStudents);   // tutaj zmieniłem z "students" na "studentList"
-        return "studentslist";
+        return "students/studentslist";
     }
 
     @GetMapping("/student/details/{studentId}")
@@ -66,7 +66,7 @@ public class StudentController {
         model.addAttribute("student", student);
         model.addAttribute("parent", parent);
         model.addAttribute("studentClass", studentClass);
-        return "studentdetails";
+        return "students/studentdetails";
 
     }
 
@@ -100,7 +100,7 @@ public class StudentController {
         model.addAttribute("student", student);
         List<Parent> parents = parentService.getAllParentsSortedByIdDesc();
         model.addAttribute("parents", parents);
-        return "editstudent";
+        return "students/editstudent";
     }
 
     @GetMapping ("/student/delete/{id}")
@@ -129,7 +129,7 @@ public class StudentController {
         model.addAttribute("reverseSortDir", sortDir.equals("asc") ? "desc" : "asc");
 
         model.addAttribute("studentList", studentList);
-        return "studentslist";
+        return "/students/studentslist";
     }
 
     @GetMapping ("/addstudent")
@@ -137,14 +137,14 @@ public class StudentController {
         model.addAttribute("student", new Student());
         List<Parent> parents = parentService.getAllParentsSortedByIdDesc();
         model.addAttribute("parents", parents);
-        return "addstudent";
+        return "students/addstudent";
     }
 
     @GetMapping ("/delete-confirmation/{id}")
     public String showDeleteConfirmation(@PathVariable (value = "id") long id, Model model) {
         Student student = studentService.getStudentById(id);
         model.addAttribute("student", student);
-        return "deleteconfirmation";
+        return "students/studentdeleteconfirmation";
     }
 
 }

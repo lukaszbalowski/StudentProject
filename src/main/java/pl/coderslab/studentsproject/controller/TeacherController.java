@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.studentsproject.model.Class;
-import pl.coderslab.studentsproject.model.Student;
 import pl.coderslab.studentsproject.model.Teacher;
 import pl.coderslab.studentsproject.model.Subject;
 import pl.coderslab.studentsproject.service.SubjectService;
@@ -26,7 +25,7 @@ public class TeacherController {
     @GetMapping("/list/teachers")
     public String getTeacherList(Model model) {
         model.addAttribute("teachers", teacherService.getAllTeachers());
-        return "teacherslist";
+        return "teachers/teacherslist";
     }
 
     @GetMapping("/teacher/details/{id}")
@@ -37,7 +36,7 @@ public class TeacherController {
         model.addAttribute("subjects", subjects);
         List<Class> classes = teacherService.getCLassesByTeacherId(id);
         model.addAttribute("classes", classes);
-        return "teacherdetails";
+        return "teachers/teacherdetails";
 
     }
 
@@ -47,7 +46,7 @@ public class TeacherController {
         List<Subject> allSubjects = subjectService.getAllSubjects();
         model.addAttribute("teacher", teacher);
         model.addAttribute("allSubjects", allSubjects);
-        return "teacheredit";
+        return "teachers/teacheredit";
     }
 
     @PostMapping("/teacher/edit/{id}")
@@ -74,7 +73,7 @@ public class TeacherController {
     @GetMapping("/teacher/add")
     public String showAddTeacherForm(Model model) {
         model.addAttribute("teacher", new Teacher());
-        return "addteacher";
+        return "teachers/addteacher";
 
     }
 
@@ -89,7 +88,7 @@ public class TeacherController {
     public String showDeleteConfirmation(@PathVariable(value = "id") long id, Model model) {
         Teacher teacher = teacherService.getTeacherById(id);
         model.addAttribute("teacher", teacher);
-        return "TeacherDeleteConfirmation";
+        return "teachers/TeacherDeleteConfirmation";
 
 
     }

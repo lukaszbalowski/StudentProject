@@ -48,14 +48,15 @@ public class ParentController {
 
         parentRepository.save(parent);
 
-        Long parentId = parent.getId();
+//        Long parentId = parent.getId();
 
         return "redirect:/addstudent";
     }
 
     @GetMapping("/addparentform")
     public String addParentForm() {
-        return "addparentform";
+
+        return "parents/addparentform";
     }
 
     @GetMapping ("/parent/details/{id}")
@@ -64,14 +65,14 @@ public class ParentController {
         List<Student> studentsByParentId = studentService.getStudentsByParentId(id);
         model.addAttribute("parent", parent);
         model.addAttribute("studentsByParentId", studentsByParentId);
-        return "parentdetails";
+        return "parents/parentdetails";
     }
 
     @GetMapping("/parent/edit/{parentId}")
     public String showEditParentForm(@PathVariable long parentId, Model model) {
         Parent parent = parentService.getParentById(parentId);
         model.addAttribute("parent", parent);
-        return "editparent";
+        return "parents/editparent";
     }
 
 
@@ -102,7 +103,7 @@ public class ParentController {
         model.addAttribute("reverseSortDir", sortDir.equals("asc") ? "desc" : "asc");
         model.addAttribute("parentsList", parents);
 
-        return "parentslist";
+        return "parents/parentslist";
     }
 
 

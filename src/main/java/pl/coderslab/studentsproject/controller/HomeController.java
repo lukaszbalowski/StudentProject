@@ -14,12 +14,6 @@ public class HomeController {
         return "index";
     }
 
-    @GetMapping("/main")
-    public String showMain() {
-        return "main";
-    }
-
-
     @RequestMapping("/notyet")
     public String showNotYet() {
         return "notyet";

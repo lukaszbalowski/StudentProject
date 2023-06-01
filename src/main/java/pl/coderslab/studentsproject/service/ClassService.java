@@ -11,7 +11,6 @@ public interface ClassService {
 
     Class getClassByName(String className);
 
-    Class saceClass(Class classObj);
 
-
+    void saveClass(Class classDetails);
 }

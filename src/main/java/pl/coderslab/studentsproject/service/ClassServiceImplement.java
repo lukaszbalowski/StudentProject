@@ -43,8 +43,8 @@ public class ClassServiceImplement implements ClassService {
     }
 
     @Override
-    public Class saceClass(Class classObj) {
-        return classRepository.save(classObj);
+    public void saveClass(Class classDetails) {
+        classRepository.save(classDetails);
     }
 
 
