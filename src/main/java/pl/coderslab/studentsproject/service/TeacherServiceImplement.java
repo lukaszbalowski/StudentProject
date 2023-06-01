@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import pl.coderslab.studentsproject.model.Subject;
 import pl.coderslab.studentsproject.model.Teacher;
 import pl.coderslab.studentsproject.model.Class;
+import pl.coderslab.studentsproject.repository.ClassRepository;
 import pl.coderslab.studentsproject.repository.TeacherRepository;
 
 import java.util.List;
@@ -22,6 +23,12 @@ public class TeacherServiceImplement implements TeacherService {
 
 
     private final SubjectService subjectService;
+
+    @Autowired
+    ClassService classService;
+
+    @Autowired
+    ClassRepository classRepository;
 
     public TeacherServiceImplement(TeacherRepository teacherRepository, SubjectService subjectService) {
         this.teacherRepository = teacherRepository;
@@ -81,6 +88,15 @@ public class TeacherServiceImplement implements TeacherService {
 
         teacherRepository.delete(teacher);
 
+    }
+
+    @Override
+    public void removeClassFromTeacher(long teacherId, long classId) {
+        Teacher teacherToRemove = getTeacherById(teacherId);
+        Class classObj = classService.getClassById(classId);
+//        teacher.removeClass(classToRemove);
+        classObj.removeTeacher(teacherToRemove);
+        classRepository.save(classObj);
     }
 
 }

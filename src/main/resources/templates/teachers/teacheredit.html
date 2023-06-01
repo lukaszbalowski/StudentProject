@@ -66,23 +66,34 @@
                 </label><br>
             </div>
 
+
+
             <input type="submit" class="btn btn-primary" value="Zapisz"> <a href="/list/teachers" class="btn btn-primary">Wróć</a>
 
         </form>
-<div class="container">
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th>Klasy, do których przypisany jest ten nauczyciel</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="class : ${teacher.classes}">
-                <td th:text="${class.className}"></td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
+<hr><hr>
+        <div class="container">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Klasy, do których przypisany jest ten nauczyciel</th>
+                    <th>Akcje</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="class : ${teacher.classes}">
+                    <td th:text="${class.className}"></td>
+                    <td>
+                        <form action="#" th:action="@{/removeclass}" method="post">
+                            <input type="hidden" name="teacherId" th:value="${teacher.id}" />
+                            <input type="hidden" name="classId" th:value="${class.id}" />
+                            <input type="submit" value="Remove" />
+                        </form>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
         <div class="container mt-4">
             <h3>Dodaj przypisanie klasy:</h3>
             <form th:action="@{/teacher/add-class/{id}(id=${teacher.id})}" method="post">
@@ -92,6 +103,7 @@
                 <input type="submit" class="btn btn-primary mt-2" value="Dodaj">
             </form>
         </div>
+
 
         <br><br>
         <a th:href="@{/teacher/delete-confirmation/{id}(id=${teacher.id})}" class="btn btn-danger">Usuń nauczyciuela</a>

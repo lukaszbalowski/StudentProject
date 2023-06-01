@@ -43,4 +43,10 @@ public class Class {
         teacher.getClasses().add(this);
     }
 
+    public void removeTeacher(Teacher teacher) {
+
+        teachers.remove(teacher);
+        teacher.getClasses().remove(this);
+    }
+
 }

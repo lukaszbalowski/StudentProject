@@ -111,8 +111,13 @@ public class TeacherController {
 
         return "redirect:/teacher/edit/{id}";
 
+    }
 
-
+    @PostMapping("/removeclass")
+    public String removeClassFromTeacher(@RequestParam("teacherId") long teacherId,
+                                         @RequestParam("classId") long classId) {
+        teacherService.removeClassFromTeacher(teacherId, classId);
+        return "redirect:/teacher/edit/" + teacherId;
     }
 
 }
