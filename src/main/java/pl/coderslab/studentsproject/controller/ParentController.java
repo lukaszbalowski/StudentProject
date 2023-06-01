@@ -16,19 +16,22 @@ import java.util.List;
 @Controller
 public class ParentController {
 
-    @Autowired
-    private ParentService parentService;
+    private final ParentService parentService;
 
-    @Autowired
-    private ParentRepository parentRepository;
+    private final ParentRepository parentRepository;
 
-    @Autowired
-    private StudentService studentService;
+    private final StudentService studentService;
 
-    @Autowired
-    public ParentController (ParentService parentService) {
+    public ParentController(ParentService parentService, ParentRepository parentRepository, StudentService studentService) {
         this.parentService = parentService;
+        this.parentRepository = parentRepository;
+        this.studentService = studentService;
     }
+
+//    @Autowired
+//    public ParentController (ParentService parentService) {
+//        this.parentService = parentService;
+//    }
 
     @GetMapping("/list/parents")
     public String getParentsList(Model model) {

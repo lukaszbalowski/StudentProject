@@ -1,6 +1,6 @@
 package pl.coderslab.studentsproject.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
 import pl.coderslab.studentsproject.model.Class;
 import pl.coderslab.studentsproject.model.Student;
@@ -12,11 +12,16 @@ import java.util.List;
 @Service
 public class ClassServiceImplement implements ClassService {
 
-    @Autowired
+    final
     ClassRepository classRepository;
 
-    @Autowired
+    final
     StudentRepository studentRepository;
+
+    public ClassServiceImplement(ClassRepository classRepository, StudentRepository studentRepository) {
+        this.classRepository = classRepository;
+        this.studentRepository = studentRepository;
+    }
 
     @Override
     public List<Class> getAllClasses() {

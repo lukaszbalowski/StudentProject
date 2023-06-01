@@ -14,8 +14,12 @@ import java.util.List;
 @Service
 public class ParentServiceImplement implements ParentService {
 
-    @Autowired
+    final
     ParentRepository parentRepository;
+
+    public ParentServiceImplement(ParentRepository parentRepository) {
+        this.parentRepository = parentRepository;
+    }
 
     @Override
     public List<Parent> getAllParents() {

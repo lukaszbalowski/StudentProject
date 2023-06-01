@@ -12,15 +12,21 @@ import java.util.List;
 @Service
 public class TeacherServiceImplement implements TeacherService {
 
-    private final TeacherRepository teacherRepository;
+    final
+    TeacherRepository teacherRepository;
 
-    @Autowired
-    public TeacherServiceImplement(TeacherRepository teacherRepository) {
+//    @Autowired
+//    public TeacherServiceImplement(TeacherRepository teacherRepository) {
+//        this.teacherRepository = teacherRepository;
+//    }
+
+
+    private final SubjectService subjectService;
+
+    public TeacherServiceImplement(TeacherRepository teacherRepository, SubjectService subjectService) {
         this.teacherRepository = teacherRepository;
+        this.subjectService = subjectService;
     }
-
-    @Autowired
-    private SubjectService subjectService;
 
 
     @Override

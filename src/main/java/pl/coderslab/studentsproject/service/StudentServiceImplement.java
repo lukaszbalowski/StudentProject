@@ -17,11 +17,15 @@ import java.util.Optional;
 public class StudentServiceImplement implements StudentService {
 
 
-    @Autowired
-    private StudentRepository studentRepository;
+    private final StudentRepository studentRepository;
 
-    @Autowired
+    final
     ParentService parentService;
+
+    public StudentServiceImplement(StudentRepository studentRepository, ParentService parentService) {
+        this.studentRepository = studentRepository;
+        this.parentService = parentService;
+    }
 
     @Override
     public List<Student> getAllStudents() {

@@ -15,11 +15,14 @@ import java.util.List;
 @Controller  // todo poprawić wszystkie ścieżki. pomyśl o @RequestMapping ("teacher")
 public class TeacherController {
 
-    @Autowired
-    private TeacherService teacherService;
+    private final TeacherService teacherService;
 
-    @Autowired
-    private SubjectService subjectService;
+    private final SubjectService subjectService;
+
+    public TeacherController(TeacherService teacherService, SubjectService subjectService) {
+        this.teacherService = teacherService;
+        this.subjectService = subjectService;
+    }
 
 
     @GetMapping("/list/teachers")

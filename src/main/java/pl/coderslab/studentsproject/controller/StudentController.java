@@ -1,7 +1,5 @@
 package pl.coderslab.studentsproject.controller;
 
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,14 +17,17 @@ import java.util.List;
 @Controller
 public class StudentController {
 
-    @Autowired
-    private StudentService studentService;
+    private final StudentService studentService;
 
-    @Autowired
-    private ParentService parentService;
+    private final ParentService parentService;
 
-    @Autowired
-    private ClassService classService;
+    private final ClassService classService;
+
+    public StudentController(StudentService studentService, ParentService parentService, ClassService classService) {
+        this.studentService = studentService;
+        this.parentService = parentService;
+        this.classService = classService;
+    }
 
 
     @GetMapping ("/list/students")
