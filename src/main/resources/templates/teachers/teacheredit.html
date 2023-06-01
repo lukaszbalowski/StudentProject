@@ -69,6 +69,30 @@
             <input type="submit" class="btn btn-primary" value="Zapisz"> <a href="/list/teachers" class="btn btn-primary">Wróć</a>
 
         </form>
+<div class="container">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Klasy, do których przypisany jest ten nauczyciel</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="class : ${teacher.classes}">
+                <td th:text="${class.className}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+        <div class="container mt-4">
+            <h3>Dodaj przypisanie klasy:</h3>
+            <form th:action="@{/teacher/add-class/{id}(id=${teacher.id})}" method="post">
+                <select class="form-control" name="classId">
+                    <option th:each="class : ${allClasses}" th:value="${class.id}" th:text="${class.className}"></option>
+                </select>
+                <input type="submit" class="btn btn-primary mt-2" value="Dodaj">
+            </form>
+        </div>
+
         <br><br>
         <a th:href="@{/teacher/delete-confirmation/{id}(id=${teacher.id})}" class="btn btn-danger">Usuń nauczyciuela</a>
 

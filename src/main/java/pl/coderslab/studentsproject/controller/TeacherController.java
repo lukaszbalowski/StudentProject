@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import pl.coderslab.studentsproject.model.Class;
 import pl.coderslab.studentsproject.model.Teacher;
 import pl.coderslab.studentsproject.model.Subject;
+import pl.coderslab.studentsproject.service.ClassService;
 import pl.coderslab.studentsproject.service.SubjectService;
 import pl.coderslab.studentsproject.service.TeacherService;
 
@@ -23,6 +24,9 @@ public class TeacherController {
         this.teacherService = teacherService;
         this.subjectService = subjectService;
     }
+
+    @Autowired
+    ClassService classService;
 
 
     @GetMapping("/list/teachers")
@@ -47,8 +51,10 @@ public class TeacherController {
     public String showTeacherEditForm(@PathVariable("id") long id, Model model) {
         Teacher teacher = teacherService.getTeacherById(id);
         List<Subject> allSubjects = subjectService.getAllSubjects();
+        List<Class> allClasses = classService.getAllClasses();
         model.addAttribute("teacher", teacher);
         model.addAttribute("allSubjects", allSubjects);
+        model.addAttribute("allClasses", allClasses);
         return "teachers/teacheredit";
     }
 
@@ -93,6 +99,20 @@ public class TeacherController {
         model.addAttribute("teacher", teacher);
         return "teachers/TeacherDeleteConfirmation";
 
+    }
+
+    @PostMapping ("/teacher/add-class/{id}")
+    public String addClassToTeacher(@PathVariable("id") Long teacherId, @RequestParam("classId") Long classId) {
+        Teacher teacher = teacherService.getTeacherById(teacherId);
+        Class cls = classService.getClassById(classId);
+//        teacher.addClass(cls);
+        cls.addTeacher(teacher);
+        teacherService.saveTeacher(teacher);
+
+        return "redirect:/teacher/edit/{id}";
+
+
 
     }
+
 }

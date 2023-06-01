@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -26,11 +27,20 @@ public class Class {
     @Column(name = "description", length = 1000)
     private String description;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.DETACH)
     @JoinTable(
             name = "class_teacher",
             joinColumns = @JoinColumn(name = "class_id"),
             inverseJoinColumns = @JoinColumn(name = "teacher_id")
     )
     private List<Teacher> teachers;
+
+    public void addTeacher(Teacher teacher) {
+        if(teachers == null) {
+            teachers = new ArrayList<>();
+        }
+        teachers.add(teacher);
+        teacher.getClasses().add(this);
+    }
+
 }

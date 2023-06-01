@@ -31,6 +31,8 @@ public class Teacher {
         @ManyToMany(mappedBy = "teachers")
         private List<Class> classes;
 
+
+
         @ManyToMany(cascade = CascadeType.DETACH)
         @JoinTable(
                 name = "teacher_subject",
