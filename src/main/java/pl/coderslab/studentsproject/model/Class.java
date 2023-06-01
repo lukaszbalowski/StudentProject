@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,13 +36,20 @@ public class Class {
     )
     private List<Teacher> teachers;
 
-    public void addTeacher(Teacher teacher) {
-        if(teachers == null) {
-            teachers = new ArrayList<>();
+    public void addTeacher(Teacher teacher) throws SQLIntegrityConstraintViolationException {
+         try {
+                teachers.add(teacher);
+                teacher.getClasses().add(this);
+            } catch (Exception ex) {
+
+                if (ex instanceof SQLIntegrityConstraintViolationException) {
+                    throw new SQLIntegrityConstraintViolationException("Błąd podczas dodawania nauczyciela do klasy");
+                } else {
+                    throw ex;
+                }
+            }
         }
-        teachers.add(teacher);
-        teacher.getClasses().add(this);
-    }
+
 
     public void removeTeacher(Teacher teacher) {
 

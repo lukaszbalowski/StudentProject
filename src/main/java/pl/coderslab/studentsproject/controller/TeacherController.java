@@ -11,6 +11,7 @@ import pl.coderslab.studentsproject.service.ClassService;
 import pl.coderslab.studentsproject.service.SubjectService;
 import pl.coderslab.studentsproject.service.TeacherService;
 
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.List;
 
 @Controller  // todo poprawić wszystkie ścieżki. pomyśl o @RequestMapping ("teacher")
@@ -102,7 +103,7 @@ public class TeacherController {
     }
 
     @PostMapping ("/teacher/add-class/{id}")
-    public String addClassToTeacher(@PathVariable("id") Long teacherId, @RequestParam("classId") Long classId) {
+    public String addClassToTeacher(@PathVariable("id") Long teacherId, @RequestParam("classId") Long classId) throws SQLIntegrityConstraintViolationException {
         Teacher teacher = teacherService.getTeacherById(teacherId);
         Class cls = classService.getClassById(classId);
 //        teacher.addClass(cls);
