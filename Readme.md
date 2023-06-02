@@ -1,4 +1,4 @@
-# SMS - Stydent Management System
+# SMS - Student Management System
 > Support in the everyday management of student and teacher data in schools.
 
 
