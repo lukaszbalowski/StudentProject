@@ -15,7 +15,7 @@ import java.util.List;
 public class Class {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)   // TODO dodać relację one to many z students
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "class_id")
     private long id;
 

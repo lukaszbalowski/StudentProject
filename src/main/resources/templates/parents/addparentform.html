@@ -9,7 +9,7 @@
         crossorigin="anonymous">
   <style>
     .table-container {
-      width: 40%;
+      width: 30%;
       margin: 0 auto;
       text-align: center;
     }
@@ -19,23 +19,29 @@
 <body>
 
 <div class="table-container">
+  <h1>SMS - Student Management System</h1>
   <table class="table">
     <tr>
       <td>
         <a th:href="@{/}" class="btn btn-primary btn-sm mb-3">Strona główna</a>
       </td>
       <td>
-        <a th:href="@{/list/students}" class="btn btn-primary btn-sm mb-3">lista studentów</a>
+        <a th:href="@{/list/students}" class="btn btn-primary btn-sm mb-3">Uczniowie</a>
+      </td>
+
+      <td>
+        <a th:href="@{/list/parents}" class="btn btn-info btn-sm mb-3">Rodzice</a>
       </td>
       <td>
-        <a th:href="@{/addparentform}" class="btn btn-info btn-sm mb-3">dodaj studenta</a>
+        <a th:href="@{/list/classes}" class="btn btn-primary btn-sm mb-3">Klasy</a>
       </td>
       <td>
-        <a href="/list/parents" class="btn btn-primary btn-sm mb-3">lista rodziców</a>
+        <a th:href="@{/list/teachers}" class="btn btn-primary btn-sm mb-3">Nauczyciele</a>
       </td>
       <td>
-        <a href="/list/classes" class="btn btn-primary btn-sm mb-3">lista klas</a>
+        <a th:href="@{/list/subjects}" class="btn btn-primary btn-sm mb-3">Przedmioty</a>
       </td>
+
     </tr>
   </table>
 </div>
@@ -45,7 +51,7 @@
   <h1>Dodawanie Studenta Krok 1 z 2</h1>
   <h1>Dodawanie Rodzica</h1>
   <br>
-  <a th:href="@{/addstudent}" class="btn btn-primary btn-sm mb-3">Rodzic już istnieje w bazie </a>
+  <a th:href="@{/addstudent}" class="btn btn-info btn-sm mb-3">Rodzic już istnieje w bazie </a>
   <br>
   <br>
   <form action="/addparent" method="post">

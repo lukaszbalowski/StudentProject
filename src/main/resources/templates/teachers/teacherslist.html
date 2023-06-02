@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>Teachers List</title>
+  <title>Lista Nauczycieli</title>
   <link rel="stylesheet"
         href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
@@ -19,6 +19,7 @@
 <body>
 
 <div class="table-container">
+  <h1>SMS - Student Management System</h1>
   <table class="table">
     <tr>
       <td>
@@ -27,20 +28,18 @@
       <td>
         <a th:href="@{/list/students}" class="btn btn-primary btn-sm mb-3">Uczniowie</a>
       </td>
-      <!--            <td>-->
-      <!--                <a th:href="@{/addparentform}" class="btn btn-primary btn-sm mb-3">dodaj studenta</a>-->
-      <!--            </td>-->
+
       <td>
-        <a href="/list/parents" class="btn btn-primary btn-sm mb-3">Rodzice</a>
+        <a th:href="@{/list/parents}" class="btn btn-primary btn-sm mb-3">Rodzice</a>
       </td>
       <td>
-        <a href="/list/classes" class="btn btn-primary btn-sm mb-3">Klasy</a>
+        <a th:href="@{/list/classes}" class="btn btn-primary btn-sm mb-3">Klasy</a>
       </td>
       <td>
-        <a href="/list/teachers" class="btn btn-info btn-sm mb-3">Nauczyciele</a>
+        <a th:href="@{/list/teachers}" class="btn btn-info btn-sm mb-3">Nauczyciele</a>
       </td>
       <td>
-        <a href="/list/subjects" class="btn btn-primary btn-sm mb-3">Przedmioty</a>
+        <a th:href="@{/list/subjects}" class="btn btn-primary btn-sm mb-3">Przedmioty</a>
       </td>
 
     </tr>

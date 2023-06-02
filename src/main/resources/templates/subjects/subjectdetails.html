@@ -19,6 +19,7 @@
 <body>
 
 <div class="table-container">
+  <h1>SMS - Student Management System</h1>
   <table class="table">
     <tr>
       <td>
@@ -29,23 +30,26 @@
       </td>
 
       <td>
-        <a href="/list/parents" class="btn btn-primary btn-sm mb-3">Rodzice</a>
+        <a th:href="@{/list/parents}" class="btn btn-primary btn-sm mb-3">Rodzice</a>
       </td>
       <td>
-        <a href="/list/classes" class="btn btn-primary btn-sm mb-3">Klasy</a>
+        <a th:href="@{/list/classes}" class="btn btn-primary btn-sm mb-3">Klasy</a>
       </td>
       <td>
-        <a href="/list/teachers" class="btn btn-primary btn-sm mb-3">Nauczyciele</a>
+        <a th:href="@{/list/teachers}" class="btn btn-primary btn-sm mb-3">Nauczyciele</a>
       </td>
       <td>
-        <a href="/list/subjects" class="btn btn-info btn-sm mb-3">Przedmioty</a>
+        <a th:href="@{/list/subjects}" class="btn btn-info btn-sm mb-3">Przedmioty</a>
       </td>
 
     </tr>
   </table>
 </div>
-<h1>Szczegóły przedmiotu</h1>
-<table>
+
+<div class="container my-2">
+  <h1>Szczegóły przedmiotu</h1>
+  <table border="1" class="table table-striped table-responsive-md">
+
   <tr>
     <th>Przedmiot:</th>
     <td th:text="${subject.subjectName}"></td>
@@ -63,5 +67,9 @@
     </td>
   </tr>
 </table>
+  <a th:href="@{/list/subjects}" class="btn btn-primary">Wróć</a>
+</div>
+
+
 </body>
 </html>

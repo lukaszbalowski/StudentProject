@@ -19,6 +19,7 @@
 <body>
 
 <div class="table-container">
+    <h1>SMS - Student Management System</h1>
     <table class="table">
         <tr>
             <td>
@@ -29,16 +30,16 @@
             </td>
 
             <td>
-                <a href="/list/parents" class="btn btn-primary btn-sm mb-3">Rodzice</a>
+                <a th:href="@{/list/parents}" class="btn btn-primary btn-sm mb-3">Rodzice</a>
             </td>
             <td>
-                <a href="/list/classes" class="btn btn-primary btn-sm mb-3">Klasy</a>
+                <a th:href="@{/list/classes}" class="btn btn-primary btn-sm mb-3">Klasy</a>
             </td>
             <td>
-                <a href="/list/teachers" class="btn btn-info btn-sm mb-3">Nauczyciele</a>
+                <a th:href="@{/list/teachers}" class="btn btn-info btn-sm mb-3">Nauczyciele</a>
             </td>
             <td>
-                <a href="/list/subjects" class="btn btn-primary btn-sm mb-3">Przedmioty</a>
+                <a th:href="@{/list/subjects}" class="btn btn-primary btn-sm mb-3">Przedmioty</a>
             </td>
 
         </tr>
@@ -100,8 +101,10 @@
                 <select class="form-control" name="classId">
                     <option th:each="class : ${allClasses}" th:value="${class.id}" th:text="${class.className}"></option>
                 </select>
-                <input type="submit" class="btn btn-primary mt-2" value="Dodaj">
+                <input type="submit" class="btn btn-primary" value="Dodaj"> <a href="/list/teachers" class="btn btn-primary">Wróć</a>
             </form>
+
+
         </div>
 
 
