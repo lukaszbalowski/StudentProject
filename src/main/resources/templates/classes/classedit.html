@@ -48,24 +48,6 @@
 </div>
 
 
-<!--<div class="container my-2">-->
-<!--  <h1>Edytuj klasę</h1>-->
-<!--  <form action="/saveclass" method="POST">-->
-<!--    <input type="hidden" name="classId" th:value="${classDetails.id}" />-->
-<!--    <div class="form-group">-->
-<!--      <label>Nazwa klasy:</label>-->
-<!--      <input type="text" name="className" class="form-control" th:value="${classDetails.className}" />-->
-<!--    </div>-->
-<!--    <div class="form-group">-->
-<!--      <label>Opis klasy:</label>-->
-<!--      <input type="text" name="classDesciption" class="form-control" th:value="${classDetails.description}" />-->
-<!--&lt;!&ndash;      <textarea name="description" class="form-control" rows="3">${classDetails.description}</textarea>&ndash;&gt;-->
-<!--    </div>-->
-<!--    <button type="submit" class="btn btn-primary">Zapisz</button>-->
-<!--    </form>-->
-<!--    <a href="/list/classes" class="btn btn-info btn-sm mb-3">Powrót</a>-->
-<!--</div>-->
-
 <div class="container my-2">
   <h1>Edytuj klasę</h1>
   <form method="post" th:action="@{/classedit/{id}(id=${classDetails.id})}">
