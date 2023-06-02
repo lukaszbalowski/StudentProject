@@ -67,12 +67,9 @@
                 </label><br>
             </div>
 
-
-
             <input type="submit" class="btn btn-primary" value="Zapisz"> <a href="/list/teachers" class="btn btn-primary">Wróć</a>
 
         </form>
-
 
 <!--w tym miejscu należy umieścić listę przypisanych języków-->
 
@@ -92,7 +89,7 @@
                         <form action="#" th:action="@{/removeclass}" method="post">
                             <input type="hidden" name="teacherId" th:value="${teacher.id}" />
                             <input type="hidden" name="classId" th:value="${class.id}" />
-                            <input type="submit" value="Remove" />
+                            <input type="submit" class="btn btn-danger" value="Usuń przypisanie" />
                         </form>
                     </td>
                 </tr>

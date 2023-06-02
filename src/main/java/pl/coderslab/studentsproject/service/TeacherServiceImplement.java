@@ -13,26 +13,19 @@ import java.util.List;
 @Service
 public class TeacherServiceImplement implements TeacherService {
 
-    final
-    TeacherRepository teacherRepository;
-
-//    @Autowired
-//    public TeacherServiceImplement(TeacherRepository teacherRepository) {
-//        this.teacherRepository = teacherRepository;
-//    }
-
+    private final TeacherRepository teacherRepository;
 
     private final SubjectService subjectService;
 
-    @Autowired
-    ClassService classService;
+    private final ClassService classService;
 
-    @Autowired
-    ClassRepository classRepository;
+    private final ClassRepository classRepository;
 
-    public TeacherServiceImplement(TeacherRepository teacherRepository, SubjectService subjectService) {
+    public TeacherServiceImplement(TeacherRepository teacherRepository, SubjectService subjectService, ClassService classService, ClassRepository classRepository) {
         this.teacherRepository = teacherRepository;
         this.subjectService = subjectService;
+        this.classService = classService;
+        this.classRepository = classRepository;
     }
 
 
@@ -55,6 +48,7 @@ public class TeacherServiceImplement implements TeacherService {
 
     @Override
     public List<Subject> getAllSubjects() {
+
         return subjectService.getAllSubjects();
     }
 
@@ -65,26 +59,11 @@ public class TeacherServiceImplement implements TeacherService {
     }
 
 
-//    @Override
-//    public List<Class> getClassesByTeacherId(long teacherId) {
-//        Teacher teacher = getTeacherById(teacherId);
-//        return teacher.getClasses();
-//    }
 
     @Override
     public void deleteTeacher(long id) {
         Teacher teacher = teacherRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid teacher ID: " + id));
-
-//        List<Class> classes = teacher.getClasses();
-//        for (Class group : classes) {
-//            group.getTeachers().remove(teacher);
-//        }
-//
-//        List<Subject> subjects = teacher.getSubjects();
-//        for (Subject subject : subjects) {
-//            subject.getTeachers().remove(teacher);
-//        }
 
         teacherRepository.delete(teacher);
 

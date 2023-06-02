@@ -14,7 +14,7 @@ import pl.coderslab.studentsproject.service.TeacherService;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.List;
 
-@Controller  // todo poprawić wszystkie ścieżki. pomyśl o @RequestMapping ("teacher")
+@Controller
 public class TeacherController {
 
     private final TeacherService teacherService;

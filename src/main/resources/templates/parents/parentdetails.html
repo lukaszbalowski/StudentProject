@@ -50,41 +50,6 @@
     <h1>Szczegóły Rodzica</h1>
     <hr>
 
-<!--    <div class="row">-->
-<!--        <div class="col-md-4">-->
-<!--            <strong>Parent ID:</strong>-->
-<!--        </div>-->
-<!--        <div class="col-md-8" th:text="${parent.id}"></div>-->
-<!--    </div>-->
-
-<!--    <div class="row">-->
-<!--        <div class="col-md-4">-->
-<!--            <strong>First Name:</strong>-->
-<!--        </div>-->
-<!--        <div class="col-md-8" th:text="${parent.firstName}"></div>-->
-<!--    </div>-->
-
-<!--    <div class="row">-->
-<!--        <div class="col-md-4">-->
-<!--            <strong>Last Name:</strong>-->
-<!--        </div>-->
-<!--        <div class="col-md-8" th:text="${parent.lastName}"></div>-->
-<!--    </div>-->
-
-<!--    <div class="row">-->
-<!--        <div class="col-md-4">-->
-<!--            <strong>Email:</strong>-->
-<!--        </div>-->
-<!--        <div class="col-md-8" th:text="${parent.email}"></div>-->
-<!--    </div>-->
-
-<!--    <div class="row">-->
-<!--        <div class="col-md-4">-->
-<!--            <strong>Phone:</strong>-->
-<!--        </div>-->
-<!--        <div class="col-md-8" th:text="${parent.phone}"></div>-->
-<!--    </div>-->
-
     <table class="table table-bordered">
         <thead>
         <tr>
@@ -128,16 +93,7 @@
         </tbody>
     </table>
 
-<!--    <div class="row">-->
-<!--        <div class="col-md-4">-->
-<!--            <strong>Students:</strong>-->
-<!--        </div>-->
-<!--        <div class="col-md-8">-->
-<!--            <ul>-->
-<!--                <li th:each="student : ${studentsByParentId}" th:text="${student.firstName + ' ' + student.lastName}"></li>-->
-<!--            </ul>-->
-<!--        </div>-->
-<!--    </div>-->
+
 
     <a th:href="@{/parent/edit/{parentId}(parentId=${parent.id})}" class="btn btn-primary">Edytuj Rodzica</a>
     <a th:href="@{/list/parents}" class="btn btn-primary">Wróć</a>

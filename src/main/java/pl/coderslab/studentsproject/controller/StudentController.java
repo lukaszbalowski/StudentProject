@@ -33,8 +33,6 @@ public class StudentController {
     @GetMapping ("/list/students")
     public String getStudentsList(Model model) {
         return findPaginated(1, "lastName", "asc", model);
-//     model.addAttribute("students", studentService.getAllStudents());
-//        return "studentslist";
     }
 
 
@@ -71,27 +69,12 @@ public class StudentController {
 
     }
 
-//    @GetMapping("/student/add")
-//    public String addStudentForm(Model model) {
-//        Student student  = new Student();
-//        model.addAttribute("student", student);
-//        return "addstudent";
-//
-//    }
 
-
-//    @PostMapping("/saveStudent")
-//    public String saveStudent(@ModelAttribute("student") Student student) {
-//        studentService.addStudent(student);
-//        return "redirect:/list/students";
-//    }
-
-//
     @PostMapping("/saveStudent")
     public String saveStudent(@ModelAttribute("student") Student student) {
 
         studentService.saveStudent(student);
-        return "redirect:/";
+        return "redirect:/list/students";
     }
 
     @GetMapping ("/student/edit/{id}")
