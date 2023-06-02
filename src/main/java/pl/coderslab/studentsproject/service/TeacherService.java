@@ -18,7 +18,6 @@ public interface TeacherService {
 
     List<Class> getCLassesByTeacherId(long teacherId);
 
-//    List<Class> getClassesByTeacherId(long teacherId);
 
     void deleteTeacher(long id);
 

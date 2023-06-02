@@ -11,6 +11,5 @@ public interface ClassService {
 
     Class getClassByName(String className);
 
-
     void saveClass(Class classDetails);
 }

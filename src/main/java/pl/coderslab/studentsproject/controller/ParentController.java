@@ -28,16 +28,10 @@ public class ParentController {
         this.studentService = studentService;
     }
 
-//    @Autowired
-//    public ParentController (ParentService parentService) {
-//        this.parentService = parentService;
-//    }
 
     @GetMapping("/list/parents")
     public String getParentsList(Model model) {
 
-//        model.addAttribute("parents", parentService.getAllParents());
-//                return "parentslist";
         return findPaginated(1, "firstName", "asc", model);
     }
 
@@ -50,8 +44,6 @@ public class ParentController {
         Parent parent = new Parent(firstName, lastName, email, phone);
 
         parentRepository.save(parent);
-
-//        Long parentId = parent.getId();
 
         return "redirect:/addstudent";
     }

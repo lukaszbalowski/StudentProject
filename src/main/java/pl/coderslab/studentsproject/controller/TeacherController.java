@@ -21,13 +21,13 @@ public class TeacherController {
 
     private final SubjectService subjectService;
 
-    public TeacherController(TeacherService teacherService, SubjectService subjectService) {
+    private final ClassService classService;
+
+    public TeacherController(TeacherService teacherService, SubjectService subjectService, ClassService classService) {
         this.teacherService = teacherService;
         this.subjectService = subjectService;
+        this.classService = classService;
     }
-
-    @Autowired
-    ClassService classService;
 
 
     @GetMapping("/list/teachers")
@@ -106,7 +106,6 @@ public class TeacherController {
     public String addClassToTeacher(@PathVariable("id") Long teacherId, @RequestParam("classId") Long classId) throws SQLIntegrityConstraintViolationException {
         Teacher teacher = teacherService.getTeacherById(teacherId);
         Class cls = classService.getClassById(classId);
-//        teacher.addClass(cls);
         cls.addTeacher(teacher);
         teacherService.saveTeacher(teacher);
 

@@ -17,11 +17,6 @@ public class SubjectServiceImplement implements SubjectService  {
         this.subjectRepository = subjectRepository;
     }
 
-//    @Autowired
-//    public SubjectServiceImplement(SubjectRepository subjectRepository) {
-//
-//        this.subjectRepository = subjectRepository;
-//    }
 
     @Override
     public List<Subject> getAllSubjects() {

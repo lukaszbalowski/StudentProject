@@ -73,7 +73,6 @@ public class TeacherServiceImplement implements TeacherService {
     public void removeClassFromTeacher(long teacherId, long classId) {
         Teacher teacherToRemove = getTeacherById(teacherId);
         Class classObj = classService.getClassById(classId);
-//        teacher.removeClass(classToRemove);
         classObj.removeTeacher(teacherToRemove);
         classRepository.save(classObj);
     }
