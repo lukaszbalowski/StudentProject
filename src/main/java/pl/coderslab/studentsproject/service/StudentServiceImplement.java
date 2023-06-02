@@ -42,11 +42,6 @@ public class StudentServiceImplement implements StudentService {
         return studentRepository.findByClassId(classId);
     }
 
-//    @Override
-//    public Student getStudentById(long studentId) {
-//        return studentRepository.findById(studentId)
-//                .orElseThrow(() -> new IllegalArgumentException("Invalid student ID: " + studentId));
-//    }
 
     @Override
     public Student getStudentById(long id) {
