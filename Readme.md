@@ -18,7 +18,7 @@ This project is the final assignment for the Java course.
 
 ## Technologies Used
 - Java 17
-- Spring Boot
+- Spring Boot v 3.0.6
 - Spring Data
 - Spring MVC
 - Thymeleaf
@@ -43,6 +43,7 @@ List the ready features here:
 ## Setup
 - Clone the repository.
 - Install the necessary dependencies listed in the pom.xml file.
+- Create databse school and populate it with data from the file DatabaseDump.sql
 - Build and run the application using Maven.
 - Access the application through the url: http://localhost:8080/
 
@@ -61,4 +62,9 @@ To do:
 - Assigning the scope of information and functionality based on the user's role. 
 - Adding the ability to send messages to students and teachers. 
 - Adding a schedule for students and teachers, and many more.
+
+## Disclaimer
+All personal data contained in the DatabaseDump.sql file is fictional and used solely for the purpose of 
+testing the application's functionality. Any resemblance to real individuals is entirely coincidental.
+
 
